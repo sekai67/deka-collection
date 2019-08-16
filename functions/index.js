@@ -38,10 +38,14 @@ exports.updateProfile = functions.region("asia-northeast1").https.onRequest(cors
 		return res.status(400).send({error: "Bad Request"});
 	}
 
-	const {name, screenName, bio} = await getUserProfile(req.body.target);
+	try {
+		const {name, screenName, bio} = await getUserProfile(req.body.target);
 
-	const db = admin.firestore();
-	await db.collection("deka").doc(screenName).set({name, screenName, bio});
+		const db = admin.firestore();
+		await db.collection("deka").doc(screenName).set({name, screenName, bio});
 
-	res.status(200).send({name, screenName, bio});
+		res.status(200).send({name, screenName, bio});
+	} catch (error) {
+		res.status(404).send({error: "Not Found"});
+	}
 }));
