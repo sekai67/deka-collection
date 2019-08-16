@@ -6,5 +6,5 @@ process.env.VUE_APP_API_ENDPOINT =
 		: "http://localhost:5001/deka-collection/asia-northeast1";
 
 module.exports = {
-
+	productionSourceMap: false,
 };
