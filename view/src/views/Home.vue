@@ -19,7 +19,6 @@ section {
 	display: flex;
 }
 article {
-	width: 200px;
 	box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
 	margin: 1em 1em 0 0;
 	display: flex;
@@ -28,9 +27,14 @@ article {
 	$radius: 4px;
 	border-radius: $radius;
 
+	$card-size: 200px;
+	width: $card-size;
+
 	img {
 		flex: 0 0 auto;
 		border-radius: $radius $radius 0 0;
+		width: $card-size;
+		height: $card-size;
 	}
 	.content {
 		flex: 1 0 auto;
