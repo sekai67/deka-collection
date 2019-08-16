@@ -35,7 +35,7 @@ header {
 	a {
 		display: block;
 		text-decoration: none;
-		color: #666;
+		color: #77E;
 		background-color: transparent;
 		margin: 0 .5em;
 		padding: .4em 1.4em;
@@ -43,7 +43,6 @@ header {
 		transition: 100ms all;
 
 		&:hover, &.router-link-exact-active {
-			color: #333;
 			background-color: #EEE;
 		}
 	}
