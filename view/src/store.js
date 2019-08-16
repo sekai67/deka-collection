@@ -1,10 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import {replies} from "./resources";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
+		replies,
 		accounts: [],
 	},
 	mutations: {
