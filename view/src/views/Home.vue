@@ -59,10 +59,10 @@ article {
 	}
 	.action {
 		flex: 0 0 auto;
-		color: #77E;
+		color: #9880ff;
 		border-top: 1px solid #EEE;
 		text-align: center;
-		padding: .4em;
+		padding: .6em;
 		cursor: pointer;
 		transition: 100ms all;
 

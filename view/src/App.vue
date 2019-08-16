@@ -39,7 +39,7 @@ header {
 	a {
 		display: block;
 		text-decoration: none;
-		color: #77E;
+		color: #9880ff;
 		background-color: transparent;
 		margin: 0 .5em;
 		padding: .4em 1.4em;
