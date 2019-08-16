@@ -1,5 +1,15 @@
 <template>
-	<div id="about">
+	<section>
 		<h1>preference</h1>
-	</div>
+	</section>
 </template>
+
+<style scoped lang="scss">
+
+</style>
+
+<script>
+export default {
+
+}
+</script>

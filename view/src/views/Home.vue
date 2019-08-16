@@ -1,10 +1,14 @@
 <template>
-	<div id="home">
+	<section>
 		<ul>
 			<li v-for="item in $store.state.accounts" v-bind:key="item.screenName">{{ item.screenName }}</li>
 		</ul>
-	</div>
+	</section>
 </template>
+
+<style scoped lang="scss">
+
+</style>
 
 <script>
 export default {
