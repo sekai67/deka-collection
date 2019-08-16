@@ -6,7 +6,14 @@ const {getUserProfile} = require("scrape-twitter");
 
 admin.initializeApp();
 
-exports.getProfiles = functions.region("asia-northeast1").https.onRequest(async (req, res) => {
+const cors = handler => (req, res) => {
+	res.set("Access-Control-Allow-Origin", req.headers.origin);
+	res.set("Access-Control-Allow-Methods", "GET, OPTIONS, POST");
+	res.set("Access-Control-Allow-Headers", "Content-Type");
+	return handler(req, res);
+};
+
+exports.getProfiles = functions.region("asia-northeast1").https.onRequest(cors(async (req, res) => {
 	if (req.method != "GET") {
 		return res.status(405).send({error: "Method Not Allowed"});
 	}
@@ -18,9 +25,12 @@ exports.getProfiles = functions.region("asia-northeast1").https.onRequest(async 
 	snapshot.forEach(e => result.push(e.data()));
 
 	res.status(200).send(result);
-});
+}));
 
-exports.updateProfile = functions.region("asia-northeast1").https.onRequest(async (req, res) => {
+exports.updateProfile = functions.region("asia-northeast1").https.onRequest(cors(async (req, res) => {
+	if (req.method == "OPTIONS") {
+		return res.status(204).send("");
+	}
 	if (req.method != "POST") {
 		return res.status(405).send({error: "Method Not Allowed"});
 	}
@@ -34,4 +44,4 @@ exports.updateProfile = functions.region("asia-northeast1").https.onRequest(asyn
 	await db.collection("deka").doc(screenName).set({name, screenName, bio});
 
 	res.status(200).send({name, screenName, bio});
-});
+}));
