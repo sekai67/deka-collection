@@ -5,7 +5,7 @@
 			<router-link to="/">Home</router-link>
 			<router-link to="/preference">Preference</router-link>
 		</header>
-		<section v-if="loading">Loading ...</section>
+		<section v-if="loading">Loading <div class="loading dot-flashing"></div></section>
 		<router-view v-else />
 	</section>
 </template>
@@ -14,6 +14,10 @@
 html, body {
 	padding: 0;
 	margin: 0;
+}
+.loading {
+	display: inline-block;
+	margin-left: 20px;
 }
 </style>
 
