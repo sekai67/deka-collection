@@ -1,10 +1,10 @@
 <template>
 	<section>
 		<article v-for="item in $store.state.accounts" :key="item.screenName">
-			<img :src="`https://res.cloudinary.com/narusejun/image/twitter_name/h_200/${item.screenName}.jpg`">
+			<img @click="open(item.screenName)" :src="`https://res.cloudinary.com/narusejun/image/twitter_name/h_200/${item.screenName}.jpg`">
 			<div class="content">
-				<h2>{{ item.name }}</h2>
-				<h3>@{{ item.screenName }}</h3>
+				<h2 @click="open(item.screenName)">{{ item.name }}</h2>
+				<h3 @click="open(item.screenName)">@{{ item.screenName }}</h3>
 				<p>{{ item.bio }}</p>
 			</div>
 			<div class="action" @click="reply(item.screenName)">クソリプ</div>
@@ -15,6 +15,7 @@
 <style scoped lang="scss">
 section {
 	display: flex;
+	flex-wrap: wrap;
 }
 article {
 	box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
@@ -29,6 +30,7 @@ article {
 	width: $card-size;
 
 	img {
+		cursor: pointer;
 		flex: 0 0 auto;
 		border-radius: $radius $radius 0 0;
 		width: $card-size;
@@ -36,22 +38,27 @@ article {
 	}
 	.content {
 		flex: 1 0 auto;
-		word-break: break-all;
-		padding: .8em 1.2em;
+		word-wrap: anywhere;
+		padding: 1.2em;
 
 		h2 {
+			cursor: pointer;
 			margin: 0;
 			font-weight: 400;
+			line-height: 1.1em;
 			color: #444;
 		}
 		h3 {
+			cursor: pointer;
 			margin: 0;
 			font-weight: 400;
+			line-height: 1.1em;
 			font-size: .8em;
-			line-height: 1em;
 			color: #888;
 		}
 		p {
+			line-height: 1.1em;
+			font-size: .9em;
 			color: #666;
 		}
 	}
@@ -80,6 +87,9 @@ export default {
 		},
 	},
 	methods: {
+		open(name) {
+			window.open(`https://twitter.com/${name}`);
+		},
 		reply(name) {
 			const replies = this.replies;
 			const {text} = replies[parseInt(replies.length * Math.random())];

@@ -11,7 +11,7 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		setAccounts(state, accounts) {
-			state.accounts = accounts;
+			state.accounts = accounts.sort((a, b) => a.screenName.toLowerCase() > b.screenName.toLowerCase());
 		},
 		reply(state, {key, enabled}) {
 			state.replies[key].enabled = enabled;
