@@ -7,9 +7,7 @@
 				<h3>@{{ item.screenName }}</h3>
 				<p>{{ item.bio }}</p>
 			</div>
-			<div class="action">
-				クソリプ
-			</div>
+			<div class="action" @click="reply(item.screenName)">クソリプ</div>
 		</article>
 	</section>
 </template>
@@ -75,6 +73,18 @@ article {
 
 <script>
 export default {
-
+	computed: {
+		replies() {
+			const replies = this.$store.state.replies.filter(r => r.enabled);
+			return replies.length ? replies : this.$store.state.replies;
+		},
+	},
+	methods: {
+		reply(name) {
+			const replies = this.replies;
+			const {text} = replies[parseInt(replies.length * Math.random())];
+			window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text.replace(/{{@}}/g, `@${name}`).trim().substr(0, 140))}`);
+		},
+	}
 }
 </script>
