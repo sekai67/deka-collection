@@ -6,12 +6,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		replies,
+		replies: replies.map(text => ({text, enabled: false})),
 		accounts: [],
 	},
 	mutations: {
 		setAccounts(state, accounts) {
 			state.accounts = accounts;
+		},
+		reply(state, {key, enabled}) {
+			state.replies[key].enabled = enabled;
 		},
 	},
 	actions: {
