@@ -25,7 +25,7 @@ html, body {
 header {
 	padding: 1em 3em;
 	border-bottom: 1px solid #EEE;
-	min-width: 500px;
+	min-width: 560px;
 	display: flex;
 
 	h1 {

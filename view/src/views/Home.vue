@@ -38,8 +38,8 @@ article {
 	}
 	.content {
 		flex: 1 0 auto;
-		word-wrap: anywhere;
 		padding: 1.2em;
+		word-wrap: break-word;
 
 		h2 {
 			cursor: pointer;
