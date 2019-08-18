@@ -7,6 +7,10 @@
 		</header>
 		<section v-if="loading">Loading <div class="loading dot-flashing"></div></section>
 		<router-view v-else />
+		<footer>
+			Fork me on <a target="_blank" href="https://github.com/kaz/deka-collection">GitHub</a><br>
+			DEKA COLLECTION by <a target="_blank" href="https://twitter.com/deka0106">@deka0106</a>
+		</footer>
 	</section>
 </template>
 
@@ -49,6 +53,17 @@ header {
 		&:hover, &.router-link-exact-active {
 			background-color: #EEE;
 		}
+	}
+}
+footer {
+	padding: 1em 2em;
+	text-align: right;
+
+	font-size: .8em;
+	color: #888;
+
+	a {
+		color: #9880ff;
 	}
 }
 section > section {
