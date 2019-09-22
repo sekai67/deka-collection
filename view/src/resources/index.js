@@ -70,4 +70,5 @@ exports.replies = [
 	require("!raw-loader!./reply067.txt").default,
 	require("!raw-loader!./reply068.txt").default,
 	require("!raw-loader!./reply069.txt").default,
+	require("!raw-loader!./reply070.txt").default,
 ];
