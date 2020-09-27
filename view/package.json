@@ -1,25 +1,20 @@
 {
-  "name": "deka-collection",
-  "version": "0.1.0",
-  "private": true,
+  "name": "view",
+  "version": "0.0.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
-    "three-dots": "^0.1.2",
-    "typeface-oswald": "0.0.75",
-    "vue": "^2.6.10",
-    "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "three-dots": "^0.2.0",
+    "typeface-oswald": "^1.1.4",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-beta.12",
+    "vuex": "^4.0.0-beta.4"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.10.0",
-    "@vue/cli-service": "^3.10.0",
-    "raw-loader": "^3.1.0",
-    "sass": "^1.18.0",
-    "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.10"
+    "@vue/compiler-sfc": "^3.0.0-rc.1",
+    "sass": "^1.26.11",
+    "vite": "^1.0.0-rc.1"
   }
 }

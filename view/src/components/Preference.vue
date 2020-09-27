@@ -65,7 +65,7 @@ export default {
 			this.account = "";
 			this.working = true;
 
-			const resp = await fetch(`${process.env.VUE_APP_API_ENDPOINT}/updateProfile`, {
+			const resp = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/updateProfile`, {
 				method: "POST",
 				body: JSON.stringify({target}),
 				headers: {

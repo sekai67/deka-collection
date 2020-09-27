@@ -1,14 +1,10 @@
-import Vue from "vue";
-import Router from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
-import Home from "./views/Home.vue";
-import Preference from "./views/Preference.vue";
+import Home from "./components/Home.vue";
+import Preference from "./components/Preference.vue";
 
-Vue.use(Router);
-
-export default new Router({
-	mode: "history",
-	base: process.env.BASE_URL,
+export default createRouter({
+	history: createWebHistory(process.env.BASE_URL),
 	routes: [
 		{
 			path: "/",
