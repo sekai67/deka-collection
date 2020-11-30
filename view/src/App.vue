@@ -5,17 +5,21 @@
 			<router-link to="/">Home</router-link>
 			<router-link to="/preference">Preference</router-link>
 		</header>
-		<section v-if="loading">Loading <div class="loading dot-flashing"></div></section>
+		<section v-if="loading">
+			Loading
+			<div class="loading dot-flashing"></div>
+		</section>
 		<router-view v-else />
 		<footer>
-			Fork me on <a target="_blank" href="https://github.com/kaz/deka-collection">GitHub</a><br>
+			Fork me on <a target="_blank" href="https://github.com/kaz/deka-collection">GitHub</a><br />
 			DEKA COLLECTION by <a target="_blank" href="https://twitter.com/deka0106">@deka0106</a>
 		</footer>
 	</section>
 </template>
 
 <style>
-html, body {
+html,
+body {
 	padding: 0;
 	margin: 0;
 }
@@ -28,7 +32,7 @@ html, body {
 <style scoped lang="scss">
 header {
 	padding: 1em 3em;
-	border-bottom: 1px solid #EEE;
+	border-bottom: 1px solid #eee;
 	min-width: 560px;
 	display: flex;
 
@@ -45,13 +49,14 @@ header {
 		text-decoration: none;
 		color: #9880ff;
 		background-color: transparent;
-		margin: 0 .5em;
-		padding: .4em 1.4em;
-		border-radius: .2em;
+		margin: 0 0.5em;
+		padding: 0.4em 1.4em;
+		border-radius: 0.2em;
 		transition: 100ms all;
 
-		&:hover, &.router-link-exact-active {
-			background-color: #EEE;
+		&:hover,
+		&.router-link-exact-active {
+			background-color: #eee;
 		}
 	}
 }
@@ -59,7 +64,7 @@ footer {
 	padding: 1em 2em;
 	text-align: right;
 
-	font-size: .8em;
+	font-size: 0.8em;
 	color: #888;
 
 	a {
@@ -79,8 +84,8 @@ export default {
 		};
 	},
 	async created() {
-		await this.$store.dispatch("fetchAccounts");
+		await this.$store.dispatch("list");
 		this.loading = false;
-	}
-}
+	},
+};
 </script>
