@@ -4,12 +4,11 @@ also known as _Hall of Shame_
 
 ## ⚙ Development
 
-### Functions
+### API
 
 ```
-cd functions
-npm install
-npm run serve
+cd api
+wrangler dev
 ```
 
 ### View
@@ -22,11 +21,23 @@ npm run dev
 
 ## 🚀 Deployment
 
+### API
+
 ```
-firebase deploy
+cd api
+wrangler publish -e production
+```
+
+### View
+
+```
+cd view
+npm run build
+cd ../site
+wrangler publish -e production
 ```
 
 ## Maintainers
 
 - [@deka0106](https://github.com/deka0106)
-- [@kaz](https://github.com/deka0106)
+- [@sekai67](https://github.com/sekai67)

@@ -3,7 +3,15 @@ type = "rust"
 name = "deka-collection-api"
 account_id = "21f21d9f5c226ec6b0325b46209bc0d9"
 
+kv_namespaces = [
+	{ binding = "ACCOUNTS", id = "ca9e2fe70f7141aea0b939578d249221", preview_id = "ca9e2fe70f7141aea0b939578d249221" }
+]
+
 workers_dev = true
+
+[env.production]
+workers_dev = false
+zone_id = "10c8e82d4b989bf095668d43da5068ec"
 route = "https://deka.narusejun.com/api/*"
 
 kv_namespaces = [
