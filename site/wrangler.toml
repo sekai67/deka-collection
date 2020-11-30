@@ -1,0 +1,11 @@
+type = "webpack"
+
+name = "deka-collection"
+account_id = "21f21d9f5c226ec6b0325b46209bc0d9"
+
+workers_dev = true
+route = "https://deka.narusejun.com/*"
+
+[site]
+bucket = "../view/dist"
+entry-point = "./"
