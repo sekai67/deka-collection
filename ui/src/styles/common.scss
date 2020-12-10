@@ -1,0 +1,12 @@
+$primary-color: orange;
+$secondary-color: hotpink;
+
+@mixin gradient-bg {
+	background: linear-gradient(30deg, $primary-color, $secondary-color);
+}
+@mixin eye-catch {
+	@include gradient-bg();
+	color: $primary-color;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

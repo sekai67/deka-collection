@@ -1,0 +1,45 @@
+@use "common";
+
+:global :local(.Scoped) {
+	header {
+		padding: 1em 3em;
+		border-bottom: 1px solid #eee;
+		min-width: 560px;
+		display: flex;
+
+		h1 {
+			@include common.eye-catch();
+			font-family: "Oswald";
+			font-weight: 400;
+			font-size: 24px;
+			margin: 0;
+			margin-right: 2em;
+			letter-spacing: 0.1em;
+		}
+		a {
+			display: block;
+			text-decoration: none;
+			margin: 0 0.5em;
+			padding: 0.4em 1.4em;
+			border-radius: 0.2em;
+
+			color: common.$secondary-color;
+			&:hover {
+				@include common.gradient-bg();
+				color: white;
+			}
+		}
+	}
+	footer {
+		padding: 1em 2em;
+		text-align: right;
+		font-size: 0.8em;
+
+		a {
+			color: common.$secondary-color;
+		}
+	}
+	section > section {
+		padding: 1em 4em;
+	}
+}
