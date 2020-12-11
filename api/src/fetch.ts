@@ -1,12 +1,7 @@
 import { load } from "cheerio";
+import { Account } from "./kv";
 
-export type Profile = {
-	screen_name: string;
-	full_name: string;
-	bio: string;
-};
-
-export const getProfile = async (screenName: string): Promise<Profile> => {
+export const fetchAccount = async (screenName: string): Promise<Account> => {
 	const resp = await fetch(`https://mobile.twitter.com/${screenName}`);
 	const $ = load(await resp.text());
 

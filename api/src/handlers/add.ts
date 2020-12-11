@@ -1,4 +1,5 @@
-import { getProfile } from "../profile";
+import { fetchAccount } from "../fetch";
+import { putAccount } from "../kv";
 import { Handler } from "../router";
 
 export const handleAdd: Handler = async request => {
@@ -18,10 +19,10 @@ export const handleAdd: Handler = async request => {
 	}
 
 	try {
-		const profile = JSON.stringify(await getProfile(screen_name));
-		await ACCOUNTS.put(screen_name, profile);
+		const account = await fetchAccount(screen_name);
+		await putAccount(screen_name, account);
 
-		return new Response(profile, {
+		return new Response(JSON.stringify(account), {
 			status: 200,
 			headers: {
 				"Content-Type": "application/json",

@@ -1,10 +1,9 @@
-import { Profile } from "../profile";
+import { getCachedAccounts } from "../kv";
 import { Handler } from "../router";
 
 export const handleList: Handler = async () => {
 	try {
-		const accounts = await Promise.all((await ACCOUNTS.list()).keys.map(({ name }) => ACCOUNTS.get<Profile>(name, "json")));
-		return new Response(JSON.stringify(accounts), {
+		return new Response(JSON.stringify(await getCachedAccounts()), {
 			status: 200,
 			headers: {
 				"Content-Type": "application/json",
