@@ -13,6 +13,7 @@ also known as _Hall of Shame_
 
 ```
 cd api
+npm start &
 wrangler dev
 ```
 
@@ -30,6 +31,7 @@ npm run dev
 
 ```
 cd api
+npm start build
 wrangler publish -e production
 ```
 
