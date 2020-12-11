@@ -4,6 +4,11 @@ also known as _Hall of Shame_
 
 ## ⚙ Development
 
+- Prerequisites
+  - node
+  - rustc
+  - [wrangler](https://developers.cloudflare.com/workers/cli-wrangler/install-update)
+
 ### API
 
 ```
