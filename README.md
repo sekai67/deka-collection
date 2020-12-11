@@ -6,14 +6,12 @@ also known as _Hall of Shame_
 
 - Prerequisites
   - node
-  - rustc
   - [wrangler](https://developers.cloudflare.com/workers/cli-wrangler/install-update)
 
 ### API
 
 ```
 cd api
-npm start &
 wrangler dev
 ```
 
@@ -31,7 +29,6 @@ npm run dev
 
 ```
 cd api
-npm start build
 wrangler publish -e production
 ```
 

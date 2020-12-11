@@ -1,4 +1,5 @@
-type = "rust"
+type = "webpack"
+webpack_config = "webpack.config.js"
 
 name = "deka-collection-api"
 account_id = "21f21d9f5c226ec6b0325b46209bc0d9"
