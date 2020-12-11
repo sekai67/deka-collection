@@ -1,19 +1,22 @@
 import style from "./styles/App.module.scss";
 
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
+import ReplyList from "./ReplyList";
 
-export default function App() {
+export default function Component() {
 	return (
-		<div className={style.Scoped}>
+		<div className={style.Component}>
 			<HashRouter>
 				<header>
 					<h1>DEKA COLLECTION</h1>
 					<Link to="/">Home</Link>
-					<Link to="/settings">Settings</Link>
+					<Link to="/replies">Replies</Link>
 				</header>
 				<main>
 					<Switch>
-						<Route path="/settings">Settings</Route>
+						<Route path="/replies">
+							<ReplyList />
+						</Route>
 						<Route path="/">Home</Route>
 					</Switch>
 				</main>

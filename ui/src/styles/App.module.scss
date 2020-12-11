@@ -1,11 +1,11 @@
 @use "common";
 
-:global :local(.Scoped) {
+:global :local(.Component) {
 	header {
-		padding: 1em 3em;
+		display: flex;
+		padding: 1rem 3rem;
 		border-bottom: 1px solid #eee;
 		min-width: 560px;
-		display: flex;
 
 		h1 {
 			@include common.eye-catch();
