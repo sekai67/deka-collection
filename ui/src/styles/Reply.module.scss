@@ -1,6 +1,6 @@
 @use "common";
 
-$border: 1px solid #ddd;
+$border: 1px solid common.$border-color;
 
 :global :local(.Component) {
 	display: inline-block;
@@ -23,30 +23,27 @@ $border: 1px solid #ddd;
 		margin: 0;
 		border-top: $border;
 
-		a {
-			display: block;
+		user-select: none;
+
+		div {
 			text-align: center;
 			flex-grow: 1;
 			padding: 0.3em;
-
-			color: common.$secondary-color;
-			text-decoration: none;
 
 			&:last-child {
 				border-left: $border;
 			}
-			&:hover {
-				@include common.gradient-bg();
-				color: white;
-			}
-		}
-		span {
-			display: block;
-			text-align: center;
-			flex-grow: 1;
-			padding: 0.3em;
 
 			color: common.$primary-color;
+			&.action {
+				color: common.$secondary-color;
+				cursor: pointer;
+
+				&:hover {
+					@include common.gradient-bg();
+					color: white;
+				}
+			}
 		}
 	}
 }

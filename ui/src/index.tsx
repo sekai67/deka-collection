@@ -1,4 +1,3 @@
-import "three-dots";
 import "typeface-oswald";
 import "./styles/index.scss";
 

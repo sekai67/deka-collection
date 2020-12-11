@@ -32,13 +32,13 @@ export default function Component(props: Props) {
 			<pre id={replyId}>{props.reply}</pre>
 			<menu>
 				{copied ? (
-					<span>Copied👌</span>
+					<div>Copied👌</div>
 				) : (
-					<a href="javascript:" onClick={pbcopy}>
+					<div className="action" onClick={pbcopy}>
 						pbcopy
-					</a>
+					</div>
 				)}
-				<a href="javascript:">disable</a>
+				<div className="action">disable</div>
 			</menu>
 		</article>
 	);

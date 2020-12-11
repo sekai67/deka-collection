@@ -4,24 +4,37 @@
 	header {
 		display: flex;
 		padding: 1rem 3rem;
-		border-bottom: 1px solid #eee;
+
+		background-color: white;
+		border-bottom: common.$border;
+
+		width: 100vw;
 		min-width: 560px;
+
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		user-select: none;
 
 		h1 {
 			@include common.eye-catch();
+
 			font-family: "Oswald";
 			font-weight: 400;
-			font-size: 24px;
-			margin: 0;
-			margin-right: 2em;
+			font-size: 1.5em;
 			letter-spacing: 0.1em;
+
+			margin: 0 2em 0 0;
 		}
 		a {
 			display: block;
-			text-decoration: none;
+
 			margin: 0 0.5em;
 			padding: 0.4em 1.4em;
 			border-radius: 0.2em;
+
+			text-decoration: none;
 
 			color: common.$secondary-color;
 			&:hover {
@@ -30,16 +43,17 @@
 			}
 		}
 	}
+	main {
+		padding: 7rem 3rem 0 3rem;
+	}
 	footer {
-		padding: 1em 2em;
+		padding: 1rem 2rem;
+
 		text-align: right;
 		font-size: 0.8em;
 
 		a {
 			color: common.$secondary-color;
 		}
-	}
-	section > section {
-		padding: 1em 4em;
 	}
 }
