@@ -1,6 +1,11 @@
 $primary-color: orange;
 $secondary-color: hotpink;
-$border-color: lightgray;
+$inverted-color: white;
+
+$text-color: black;
+$subtext-color: lightslategray;
+
+$border-color: gainsboro;
 
 $border: 1px solid $border-color;
 
@@ -12,4 +17,20 @@ $border: 1px solid $border-color;
 	color: $primary-color;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
+}
+@mixin button {
+	cursor: pointer;
+	color: $secondary-color;
+
+	&:hover {
+		@include gradient-bg();
+		color: $inverted-color;
+	}
+}
+@mixin card {
+	overflow: hidden;
+	margin: 0 1em 1em 0;
+
+	border-radius: 4px;
+	box-shadow: 0 2px 3px $border-color, 0 0 0 1px $border-color;
 }

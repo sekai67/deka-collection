@@ -3,17 +3,13 @@
 $border: 1px solid common.$border-color;
 
 :global :local(.Component) {
+	@include common.card;
+	max-width: 400px;
+
 	display: inline-block;
 
-	border: $border;
-	border-radius: 0.5rem;
-
-	max-width: 400px;
-	margin: 0 0.5em 0.5em 0;
-	overflow: hidden;
-
 	pre {
-		margin: 1em;
+		margin: 1.5em 2em;
 		word-break: break-word;
 		white-space: pre-wrap;
 	}
@@ -27,7 +23,7 @@ $border: 1px solid common.$border-color;
 
 		div {
 			text-align: center;
-			flex-grow: 1;
+			flex: 1 0 auto;
 			padding: 0.3em;
 
 			&:last-child {
@@ -36,13 +32,7 @@ $border: 1px solid common.$border-color;
 
 			color: common.$primary-color;
 			&.action {
-				color: common.$secondary-color;
-				cursor: pointer;
-
-				&:hover {
-					@include common.gradient-bg();
-					color: white;
-				}
+				@include common.button();
 			}
 		}
 	}

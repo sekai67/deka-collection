@@ -5,7 +5,7 @@
 		display: flex;
 		padding: 1rem 3rem;
 
-		background-color: white;
+		background-color: common.$inverted-color;
 		border-bottom: common.$border;
 
 		width: 100vw;
@@ -45,6 +45,7 @@
 	}
 	main {
 		padding: 7rem 3rem 0 3rem;
+		background-color: common.$inverted-color;
 	}
 	footer {
 		padding: 1rem 2rem;
@@ -52,6 +53,7 @@
 		text-align: right;
 		font-size: 0.8em;
 
+		color: common.$subtext-color;
 		a {
 			color: common.$secondary-color;
 		}

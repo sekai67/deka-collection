@@ -3,17 +3,11 @@
 $card-size: 200px;
 
 :global :local(.Component) {
-	box-shadow: 0 2px 3px lightgray, 0 0 0 1px lightgray;
+	@include common.card();
+	width: $card-size;
 
 	display: flex;
 	flex-direction: column;
-	margin: 1em 1em 0 0;
-
-	$radius: 4px;
-	border-radius: $radius;
-	overflow: hidden;
-
-	width: $card-size;
 
 	img {
 		cursor: pointer;
@@ -31,7 +25,6 @@ $card-size: 200px;
 			margin: 0;
 			font-weight: 400;
 			line-height: 1.1em;
-			color: #444;
 		}
 		h3 {
 			cursor: pointer;
@@ -39,26 +32,19 @@ $card-size: 200px;
 			font-weight: 400;
 			line-height: 1.1em;
 			font-size: 0.8em;
-			color: #888;
+			color: common.$subtext-color;
 		}
 		p {
 			line-height: 1.1em;
 			font-size: 0.9em;
-			color: #666;
 		}
 	}
 	.action {
+		@include common.button();
+
 		flex: 0 0 auto;
-		border-top: 1px solid #eee;
+		border-top: common.$border;
 		text-align: center;
 		padding: 0.6em;
-
-		color: common.$secondary-color;
-		cursor: pointer;
-
-		&:hover {
-			@include common.gradient-bg();
-			color: white;
-		}
 	}
 }
