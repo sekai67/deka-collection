@@ -1,5 +1,6 @@
 import style from "../styles/Profile.module.scss";
 
+import { useSelector } from "react-redux";
 import { Account } from "../stores/accounts";
 
 type Props = {
@@ -7,10 +8,21 @@ type Props = {
 };
 
 export default function Component({ account }: Props) {
+	const replies = useSelector(state => state.replies.value);
+
 	const openProfile = () => {
 		window.open(`https://twitter.com/${account.screen_name}`);
 	};
-	const sendReply = () => {};
+	const sendReply = () => {
+		let selected = replies.filter(({ selected }) => selected);
+		if (selected.length == 0) {
+			selected = replies;
+		}
+
+		const { value } = replies[Math.floor(Math.random() * selected.length)];
+		const text = encodeURIComponent(value.replace(/{{@}}/g, `@${account.screen_name}`).trim().substr(0, 140));
+		window.open(`https://twitter.com/intent/tweet?text=${text}`);
+	};
 
 	return (
 		<article className={style.Component}>
