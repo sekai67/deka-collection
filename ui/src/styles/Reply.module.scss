@@ -1,9 +1,7 @@
-@use "common";
-
-$border: 1px solid common.$border-color;
+@use "themes/theme";
 
 :global :local(.Component) {
-	@include common.card;
+	@include theme.card;
 	max-width: 400px;
 
 	display: inline-block;
@@ -17,7 +15,7 @@ $border: 1px solid common.$border-color;
 		display: flex;
 		padding: 0;
 		margin: 0;
-		border-top: $border;
+		border-top: theme.$border;
 
 		user-select: none;
 
@@ -27,12 +25,12 @@ $border: 1px solid common.$border-color;
 			padding: 0.3em;
 
 			&:last-child {
-				border-left: $border;
+				border-left: theme.$border;
 			}
 
-			color: common.$primary-color;
+			color: theme.$color-primary;
 			&.action {
-				@include common.button();
+				@include theme.button();
 			}
 		}
 	}

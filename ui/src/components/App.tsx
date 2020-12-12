@@ -1,6 +1,6 @@
 import style from "../styles/App.module.scss";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
 import { fetchAccounts } from "../stores/accounts";
@@ -8,13 +8,16 @@ import Collection from "./Collection";
 import ReplyList from "./ReplyList";
 
 export default function Component() {
+	const { matches } = matchMedia("(prefers-color-scheme: dark)");
+	const [theme, setTheme] = useState<"dark" | "light">(matches ? "dark" : "light");
+
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchAccounts());
 	}, []);
 
 	return (
-		<div className={style.Component}>
+		<div className={style.Component} data-theme={theme}>
 			<HashRouter>
 				<header>
 					<h1>DEKA COLLECTION</h1>

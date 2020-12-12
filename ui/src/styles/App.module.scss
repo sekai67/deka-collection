@@ -1,12 +1,15 @@
-@use "common";
+@use "themes/theme";
 
 :global :local(.Component) {
+	background-color: theme.$color-bg;
+	color: theme.$color-text;
+
 	header {
 		display: flex;
 		padding: 1rem 3rem;
 
-		background-color: common.$inverted-color;
-		border-bottom: common.$border;
+		border-bottom: theme.$border;
+		background-color: theme.$color-bg;
 
 		width: 100vw;
 		min-width: 560px;
@@ -18,7 +21,7 @@
 		user-select: none;
 
 		h1 {
-			@include common.eye-catch();
+			@include theme.eye-catch();
 
 			font-family: "Oswald";
 			font-weight: 400;
@@ -28,6 +31,8 @@
 			margin: 0 2em 0 0;
 		}
 		a {
+			@include theme.button();
+
 			display: block;
 
 			margin: 0 0.5em;
@@ -35,17 +40,10 @@
 			border-radius: 0.2em;
 
 			text-decoration: none;
-
-			color: common.$secondary-color;
-			&:hover {
-				@include common.gradient-bg();
-				color: white;
-			}
 		}
 	}
 	main {
 		padding: 7rem 3rem 0 3rem;
-		background-color: common.$inverted-color;
 	}
 	footer {
 		padding: 1rem 2rem;
@@ -53,9 +51,9 @@
 		text-align: right;
 		font-size: 0.8em;
 
-		color: common.$subtext-color;
+		color: theme.$color-subtext;
 		a {
-			color: common.$secondary-color;
+			color: theme.$color-secondary;
 		}
 	}
 }
