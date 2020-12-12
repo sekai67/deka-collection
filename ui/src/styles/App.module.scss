@@ -6,6 +6,8 @@
 	background-color: theme.$color-bg;
 	color: theme.$color-text;
 
+	min-height: 100vh;
+
 	header {
 		@include theme.themeTransition();
 
