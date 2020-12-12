@@ -11,11 +11,12 @@ $color-inverted: var(--color-inverted);
 @mixin theme-transition {
 	transition: color 200ms, background-color 200ms, box-shadow 200ms;
 }
-@mixin gradient-bg {
+@mixin keyColoredBackground {
+	color: $color-inverted;
 	background: linear-gradient(30deg, $color-primary, $color-secondary);
 }
 @mixin eye-catch {
-	@include gradient-bg();
+	@include keyColoredBackground();
 
 	color: $color-primary;
 	background-clip: text;
@@ -26,8 +27,7 @@ $color-inverted: var(--color-inverted);
 	color: $color-secondary;
 
 	&:hover {
-		@include gradient-bg();
-		color: $color-inverted;
+		@include keyColoredBackground();
 	}
 }
 @mixin card {

@@ -6,6 +6,11 @@
 
 	display: inline-block;
 
+	.status {
+		@include theme.keyColoredBackground();
+		text-align: center;
+		border-bottom: theme.$border;
+	}
 	pre {
 		margin: 1.5em 2em;
 		word-break: break-word;

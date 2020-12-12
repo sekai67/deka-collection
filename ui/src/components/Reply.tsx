@@ -1,7 +1,8 @@
 import style from "../styles/Reply.module.scss";
 
 import { useState, createRef } from "react";
-import { Reply } from "../stores/replies";
+import { useDispatch } from "react-redux";
+import { Reply, updateSelected } from "../stores/replies";
 
 type Props = {
 	reply: Reply;
@@ -25,18 +26,32 @@ export default function Component({ reply }: Props) {
 		setTimeout(setCopied, 2000, false);
 	};
 
+	const dispatch = useDispatch();
+	const toggleSelectStatus = () => {
+		dispatch(updateSelected({ id: reply.id, selected: !reply.selected }));
+	};
+
 	return (
 		<article className={style.Component}>
+			{reply.selected && <div className="status">選択中！</div>}
 			<pre ref={ref}>{reply.value}</pre>
 			<menu>
 				{copied ? (
-					<div>Copied👌</div>
+					<div>コピーしました👌</div>
 				) : (
 					<div className="action" onClick={pbcopy}>
-						pbcopy
+						コピー
 					</div>
 				)}
-				<div className="action">disable</div>
+				{reply.selected ? (
+					<div className="action" onClick={toggleSelectStatus}>
+						解除
+					</div>
+				) : (
+					<div className="action" onClick={toggleSelectStatus}>
+						使う
+					</div>
+				)}
 			</menu>
 		</article>
 	);
