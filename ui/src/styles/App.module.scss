@@ -1,13 +1,13 @@
 @use "themes/theme";
 
 :global :local(.Component) {
-	@include theme.theme-transition();
+	@include theme.themeTransition();
 
 	background-color: theme.$color-bg;
 	color: theme.$color-text;
 
 	header {
-		@include theme.theme-transition();
+		@include theme.themeTransition();
 
 		display: flex;
 		padding: 1rem 3rem;
@@ -25,7 +25,7 @@
 		user-select: none;
 
 		> h1 {
-			@include theme.eye-catch();
+			@include theme.logoText();
 
 			font-family: "Oswald";
 			font-weight: 400;

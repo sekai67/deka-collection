@@ -8,14 +8,14 @@ $color-primary: var(--color-primary);
 $color-secondary: var(--color-secondary);
 $color-inverted: var(--color-inverted);
 
-@mixin theme-transition {
+@mixin themeTransition {
 	transition: color 200ms, background-color 200ms, box-shadow 200ms;
 }
 @mixin keyColoredBackground {
 	color: $color-inverted;
 	background: linear-gradient(30deg, $color-primary, $color-secondary);
 }
-@mixin eye-catch {
+@mixin logoText {
 	@include keyColoredBackground();
 
 	color: $color-primary;
@@ -31,7 +31,7 @@ $color-inverted: var(--color-inverted);
 	}
 }
 @mixin card {
-	@include theme-transition();
+	@include themeTransition();
 
 	overflow: hidden;
 	margin: 0 1em 1em 0;
