@@ -20,7 +20,7 @@ export const handleAdd: Handler = async request => {
 
 	try {
 		const account = await fetchAccount(screen_name);
-		await putAccount(screen_name, account);
+		await putAccount(account);
 
 		return new Response(JSON.stringify(account), {
 			status: 200,
