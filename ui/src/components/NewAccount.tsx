@@ -22,18 +22,21 @@ export default function Component() {
 		callAddAccount();
 	};
 
-	const [working, setWorking] = useState(false);
+	const [loading, setLoading] = useState(false);
 	const dispatch = useAppDispatch();
 	const history = useHistory();
 	const callAddAccount = async () => {
-		setWorking(true);
+		setLoading(true);
 		const result = await dispatch(addAccount(target));
-		setWorking(false);
+		setLoading(false);
 		try {
 			await unwrapResult(result);
 			history.push("/");
 		} catch (e) {
-			alert(JSON.stringify(e));
+			if ("message" in e) {
+				e = e.message;
+			}
+			alert(`adding account: ${e}`);
 		}
 	};
 
@@ -44,8 +47,8 @@ export default function Component() {
 				<img src={profilePic} onError={() => setFallback(true)} />
 				<div>
 					<input type="input" placeholder="@deka0106" value={target} onKeyPress={handleEnterKey} onChange={changeProfilePicture} />
-					{working ? (
-						<div className="loading dot-windmill"></div>
+					{loading ? (
+						<div className="loading dot-windmill" />
 					) : (
 						<div className="action" onClick={callAddAccount}>
 							追加

@@ -6,18 +6,28 @@ export type Account = {
 	bio: string;
 };
 
+const apiCall = async (url: string): Promise<any> => {
+	const resp = await fetch(url);
+	if (!resp.ok) {
+		throw new Error(`HTTP Error: ${resp.status}`);
+	}
+	const contentType = resp.headers.get("Content-Type");
+	if (!contentType || !contentType.startsWith("application/json")) {
+		throw new Error(`Unexpected content type: ${contentType}`);
+	}
+	return resp.json();
+};
+
 export const fetchAccounts = createAsyncThunk(
 	"accounts/fetch",
 	async (): Promise<Account[]> => {
-		const resp = await fetch("/api/list");
-		return resp.json();
+		return apiCall("/api/list");
 	},
 );
 export const addAccount = createAsyncThunk(
 	"accounts/add",
 	async (screen_name: string): Promise<Account> => {
-		const resp = await fetch(`/api/add?screen_name=${encodeURIComponent(screen_name)}`);
-		return resp.json();
+		return apiCall(`/api/add?screen_name=${encodeURIComponent(screen_name)}`);
 	},
 );
 

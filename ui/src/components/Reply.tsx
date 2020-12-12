@@ -1,7 +1,7 @@
 import style from "../styles/Reply.module.scss";
 
 import { useState, createRef } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../stores";
 import { Reply, updateSelected } from "../stores/replies";
 
 type Props = {
@@ -26,7 +26,7 @@ export default function Component({ reply }: Props) {
 		setTimeout(setCopied, 2000, false);
 	};
 
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const toggleSelectStatus = () => {
 		dispatch(updateSelected({ id: reply.id, selected: !reply.selected }));
 	};

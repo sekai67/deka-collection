@@ -1,8 +1,9 @@
 import style from "../styles/App.module.scss";
 
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
+import { unwrapResult } from "@reduxjs/toolkit";
+import { useAppDispatch } from "../stores";
 import { fetchAccounts } from "../stores/accounts";
 import Collection from "./Collection";
 import NewAccount from "./NewAccount";
@@ -12,9 +13,19 @@ export default function Component() {
 	const { matches } = matchMedia("(prefers-color-scheme: dark)");
 	const [darkMode, setDarkMode] = useState(matches);
 
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	useEffect(() => {
-		dispatch(fetchAccounts());
+		(async () => {
+			const result = await dispatch(fetchAccounts());
+			try {
+				await unwrapResult(result);
+			} catch (e) {
+				if ("message" in e) {
+					e = e.message;
+				}
+				alert(`fething accounts: ${e}`);
+			}
+		})();
 	}, []);
 
 	return (
