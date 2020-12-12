@@ -19,7 +19,7 @@ export const putAccount = async (key: string, value: Account) => {
 	const accounts = (await getAccounts())
 		.filter(account => account && account.screen_name != key)
 		.concat([value])
-		.sort((a, b) => (!a || !b ? 0 : a.screen_name.localeCompare(b.screen_name)));
+		.sort((a, b) => (!a || !b ? 0 : a.screen_name.toLowerCase().localeCompare(b.screen_name.toLowerCase())));
 
 	await Promise.all([ACCOUNTS.put(key, JSON.stringify(value)), ACCOUNTS.put(CACHE_KEY, JSON.stringify(accounts))]);
 };
