@@ -30,12 +30,16 @@
 			padding: 0 1em;
 
 			input {
+				@include theme.themeTransition();
+
 				padding: 0.5em;
 				font-size: 2em;
 
 				border: theme.$border;
 				border-radius: 0.2em;
 
+				color: theme.$color-text;
+				background-color: theme.$color-bg;
 				&::placeholder {
 					color: theme.$color-border;
 				}
