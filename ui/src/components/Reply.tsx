@@ -33,7 +33,7 @@ export default function Component({ reply }: Props) {
 
 	return (
 		<article className={style.Component}>
-			{reply.selected && <div className="status">選択中！</div>}
+			{reply.selected && <div>選択中</div>}
 			<pre ref={ref}>{reply.value}</pre>
 			<menu>
 				{copied ? (
