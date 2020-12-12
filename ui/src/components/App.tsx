@@ -9,7 +9,7 @@ import ReplyList from "./ReplyList";
 
 export default function Component() {
 	const { matches } = matchMedia("(prefers-color-scheme: dark)");
-	const [theme, setTheme] = useState<"dark" | "light">(matches ? "dark" : "light");
+	const [darkMode, setDarkMode] = useState(matches);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -17,13 +17,23 @@ export default function Component() {
 	}, []);
 
 	return (
-		<div className={style.Component} data-theme={theme}>
+		<div className={style.Component} data-theme={darkMode ? "dark" : "light"}>
 			<HashRouter>
 				<header>
 					<h1>DEKA COLLECTION</h1>
 					<Link to="/">Collection</Link>
 					<Link to="/replies">Replies</Link>
+
+					<label className="switch-light switch-ios">
+						<input type="checkbox" checked={darkMode} onChange={e => setDarkMode(e.target.checked)} />
+						<span>
+							<span>🌞</span>
+							<span>🌚</span>
+							<a></a>
+						</span>
+					</label>
 				</header>
+
 				<main>
 					<Switch>
 						<Route path="/replies">
@@ -34,6 +44,7 @@ export default function Component() {
 						</Route>
 					</Switch>
 				</main>
+
 				<footer>
 					Fork me on{" "}
 					<a target="_blank" href="https://github.com/sekai67/deka-collection">

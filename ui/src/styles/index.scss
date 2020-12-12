@@ -1,6 +1,9 @@
 @use "themes/dark";
 @use "themes/light";
 
+* {
+	box-sizing: border-box;
+}
 html,
 body {
 	padding: 0;

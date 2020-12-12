@@ -1,4 +1,5 @@
 import "typeface-oswald";
+import "css-toggle-switch/dist/toggle-switch.css";
 import "./styles/index.scss";
 
 import React from "react";
