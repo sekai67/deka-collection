@@ -1,6 +1,6 @@
 import style from "../styles/Reply.module.scss";
 
-import { useState } from "react";
+import { useState, createRef } from "react";
 import { Reply } from "../stores/replies";
 
 type Props = {
@@ -8,18 +8,16 @@ type Props = {
 };
 
 export default function Component({ reply }: Props) {
-	const replyId = `reply-${reply.id}`;
-
+	const ref = createRef<HTMLPreElement>();
 	const [copied, setCopied] = useState(false);
 	const pbcopy = () => {
-		const target = document.getElementById(replyId);
 		const selection = document.getSelection();
-		if (!target || !selection) {
-			return alert("copy failed...");
+		if (!selection || !ref.current) {
+			return alert("copy failed");
 		}
 
 		selection.removeAllRanges();
-		selection.selectAllChildren(target);
+		selection.selectAllChildren(ref.current);
 		document.execCommand("copy");
 		selection.removeAllRanges();
 
@@ -29,7 +27,7 @@ export default function Component({ reply }: Props) {
 
 	return (
 		<article className={style.Component}>
-			<pre id={replyId}>{reply.value}</pre>
+			<pre ref={ref}>{reply.value}</pre>
 			<menu>
 				{copied ? (
 					<div>Copied👌</div>
