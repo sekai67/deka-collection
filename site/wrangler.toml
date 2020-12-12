@@ -11,5 +11,5 @@ zone_id = "10c8e82d4b989bf095668d43da5068ec"
 route = "https://deka.narusejun.com/*"
 
 [site]
-bucket = "../view/dist"
+bucket = "../ui/build"
 entry-point = "./"

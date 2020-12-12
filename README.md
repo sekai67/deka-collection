@@ -15,12 +15,12 @@ cd api
 wrangler dev
 ```
 
-### View
+### UI
 
 ```
-cd view
+cd ui
 npm install
-npm run dev
+npm start
 ```
 
 ## 🚀 Deployment
@@ -32,10 +32,10 @@ cd api
 wrangler publish -e production
 ```
 
-### View
+### UI
 
 ```
-cd view
+cd ui
 npm run build
 cd ../site
 wrangler publish -e production
