@@ -1,14 +1,14 @@
 import style from "../styles/Reply.module.scss";
 
 import { useState } from "react";
+import { Reply } from "../stores/replies";
 
 type Props = {
-	id: number;
-	reply: string;
+	reply: Reply;
 };
 
-export default function Component(props: Props) {
-	const replyId = `reply-${props.id}`;
+export default function Component({ reply }: Props) {
+	const replyId = `reply-${reply.id}`;
 
 	const [copied, setCopied] = useState(false);
 	const pbcopy = () => {
@@ -29,7 +29,7 @@ export default function Component(props: Props) {
 
 	return (
 		<article className={style.Component}>
-			<pre id={replyId}>{props.reply}</pre>
+			<pre id={replyId}>{reply.value}</pre>
 			<menu>
 				{copied ? (
 					<div>Copied👌</div>
