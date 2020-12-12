@@ -26,6 +26,10 @@ export default function Component() {
 	const dispatch = useAppDispatch();
 	const history = useHistory();
 	const callAddAccount = async () => {
+		if (fallback) {
+			return alert("No such account!");
+		}
+
 		setLoading(true);
 		const result = await dispatch(addAccount(target));
 		setLoading(false);
