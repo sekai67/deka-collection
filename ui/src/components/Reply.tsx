@@ -1,4 +1,4 @@
-import style from "./styles/Reply.module.scss";
+import style from "../styles/Reply.module.scss";
 
 import { useState } from "react";
 

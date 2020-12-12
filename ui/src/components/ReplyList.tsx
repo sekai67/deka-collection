@@ -1,4 +1,4 @@
-import replies from "./replies";
+import replies from "../replies";
 
 import Reply from "./Reply";
 

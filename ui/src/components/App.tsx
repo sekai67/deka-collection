@@ -1,4 +1,4 @@
-import style from "./styles/App.module.scss";
+import style from "../styles/App.module.scss";
 
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
 import ReplyList from "./ReplyList";
