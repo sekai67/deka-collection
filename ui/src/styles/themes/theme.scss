@@ -16,6 +16,11 @@ $color-inverted: var(--color-inverted);
 	background: linear-gradient(30deg, $color-primary, $color-secondary);
 }
 @mixin logoText {
+	font-family: "Oswald";
+	font-weight: 400;
+	letter-spacing: 0.1em;
+}
+@mixin logoStyle {
 	@include keyColoredBackground();
 
 	color: $color-primary;
@@ -40,4 +45,5 @@ $color-inverted: var(--color-inverted);
 	box-shadow: 0 2px 3px $color-border, 0 0 0 1px $color-border;
 }
 
+$card-size: 200px;
 $border: 1px solid $color-border;

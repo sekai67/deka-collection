@@ -26,12 +26,9 @@
 
 		> h1 {
 			@include theme.logoText();
+			@include theme.logoStyle();
 
-			font-family: "Oswald";
-			font-weight: 400;
 			font-size: 1.5em;
-			letter-spacing: 0.1em;
-
 			margin: 0 2em 0 0;
 		}
 		> a {

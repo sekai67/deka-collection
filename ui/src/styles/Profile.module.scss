@@ -1,10 +1,8 @@
 @use "themes/theme";
 
-$card-size: 200px;
-
 :global :local(.Component) {
 	@include theme.card();
-	width: $card-size;
+	width: theme.$card-size;
 
 	display: flex;
 	flex-direction: column;
@@ -12,8 +10,8 @@ $card-size: 200px;
 	img {
 		cursor: pointer;
 		flex: 0 0 auto;
-		width: $card-size;
-		height: $card-size;
+		width: theme.$card-size;
+		height: theme.$card-size;
 	}
 	.content {
 		flex: 1 0 auto;

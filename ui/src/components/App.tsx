@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
 import { fetchAccounts } from "../stores/accounts";
 import Collection from "./Collection";
+import NewAccount from "./NewAccount";
 import ReplyList from "./ReplyList";
 
 export default function Component() {
@@ -21,8 +22,9 @@ export default function Component() {
 			<HashRouter>
 				<header>
 					<h1>DEKA COLLECTION</h1>
-					<Link to="/">Collection</Link>
-					<Link to="/replies">Replies</Link>
+					<Link to="/">コレクション</Link>
+					<Link to="/new">追加</Link>
+					<Link to="/replies">クソリプ集</Link>
 
 					<label className="switch-light switch-ios">
 						<input type="checkbox" checked={darkMode} onChange={e => setDarkMode(e.target.checked)} />
@@ -38,6 +40,9 @@ export default function Component() {
 					<Switch>
 						<Route path="/replies">
 							<ReplyList />
+						</Route>
+						<Route path="/new">
+							<NewAccount />
 						</Route>
 						<Route path="/">
 							<Collection />

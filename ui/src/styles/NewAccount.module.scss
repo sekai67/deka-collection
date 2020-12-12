@@ -1,0 +1,54 @@
+@use "themes/theme";
+
+:global :local(.Component) {
+	h2 {
+		@include theme.logoText();
+
+		font-size: 1.2rem;
+		color: theme.$color-subtext;
+
+		margin: 0;
+	}
+	article {
+		@include theme.card();
+
+		display: inline-flex;
+		flex-direction: row;
+
+		height: theme.$card-size;
+		img {
+			width: theme.$card-size;
+			height: theme.$card-size;
+		}
+
+		> div {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: flex-end;
+
+			padding: 0 1em;
+
+			input {
+				padding: 0.5em;
+				font-size: 2em;
+
+				border: theme.$border;
+				border-radius: 0.2em;
+
+				&::placeholder {
+					color: theme.$color-border;
+				}
+			}
+			.loading {
+				margin: 1em;
+			}
+			.action {
+				@include theme.button();
+
+				padding: 1em 2em;
+				border-radius: 0.2em;
+			}
+		}
+	}
+}
