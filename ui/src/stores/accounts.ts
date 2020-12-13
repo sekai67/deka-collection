@@ -38,7 +38,8 @@ const slice = createSlice({
 	},
 	reducers: {},
 	extraReducers: builder => {
-		const compareFn = (a: Account, b: Account) => a.screen_name.toLowerCase().localeCompare(b.screen_name.toLowerCase());
+		const compareFn = (a: Account, b: Account) =>
+			a.screen_name.toLowerCase().localeCompare(b.screen_name.toLowerCase());
 
 		builder.addCase(fetchAccounts.fulfilled, (state, { payload }) => {
 			state.value = payload.sort(compareFn);

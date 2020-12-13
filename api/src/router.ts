@@ -10,7 +10,9 @@ export default class {
 
 	private async handle(request: Request): Promise<Response> {
 		const url = new URL(request.url);
-		const route = Array.from(this.handlers.keys()).find(route => route.method == request.method && route.path == url.pathname);
+		const route = Array.from(this.handlers.keys()).find(
+			route => route.method == request.method && route.path == url.pathname,
+		);
 		const handler = this.handlers.get(route!);
 		if (!handler) {
 			return new Response(

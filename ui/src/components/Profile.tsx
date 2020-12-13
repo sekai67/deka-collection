@@ -26,7 +26,10 @@ export default function Component({ account }: Props) {
 
 	return (
 		<article className={style.Component}>
-			<img onClick={openProfile} src={`https://res.cloudinary.com/narusejun/image/twitter_name/h_200/${account.screen_name}.jpg`} />
+			<img
+				onClick={openProfile}
+				src={`https://res.cloudinary.com/narusejun/image/twitter_name/h_200/${account.screen_name}.jpg`}
+			/>
 			<div className="content">
 				<h2 onClick={openProfile}>{account.full_name}</h2>
 				<h3 onClick={openProfile}>@{account.screen_name}</h3>

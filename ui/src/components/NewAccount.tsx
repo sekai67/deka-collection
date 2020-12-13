@@ -10,7 +10,9 @@ export default function Component() {
 	const [target, setTarget] = useState("");
 	const [fallback, setFallback] = useState(false);
 
-	const profilePic = fallback ? "https://abs.twimg.com/sticky/default_profile_images/default_profile_200x200.png" : `https://res.cloudinary.com/narusejun/image/twitter_name/h_200/${target}.jpg`;
+	const profilePic = fallback
+		? "https://abs.twimg.com/sticky/default_profile_images/default_profile_200x200.png"
+		: `https://res.cloudinary.com/narusejun/image/twitter_name/h_200/${target}.jpg`;
 	const changeProfilePicture = (e: ChangeEvent<HTMLInputElement>) => {
 		setTarget(e.target.value);
 		setFallback(false);
@@ -50,7 +52,13 @@ export default function Component() {
 			<article>
 				<img src={profilePic} onError={() => setFallback(true)} />
 				<div>
-					<input type="input" placeholder="@deka0106" value={target} onKeyPress={handleEnterKey} onChange={changeProfilePicture} />
+					<input
+						type="input"
+						placeholder="@deka0106"
+						value={target}
+						onKeyPress={handleEnterKey}
+						onChange={changeProfilePicture}
+					/>
 					{loading ? (
 						<div className="loading dot-windmill" />
 					) : (
