@@ -1,7 +1,7 @@
 @use "themes/theme";
 
 :global :local(.Component) {
-	@include theme.themeTransition();
+	@include theme.transition();
 
 	background-color: theme.$color-bg;
 	color: theme.$color-text;
@@ -9,7 +9,7 @@
 	min-height: 100vh;
 
 	> header {
-		@include theme.themeTransition();
+		@include theme.transition();
 
 		display: flex;
 		padding: 1rem 3rem;

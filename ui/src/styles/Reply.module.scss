@@ -1,7 +1,7 @@
 @use "themes/theme";
 
 :global :local(.Component) {
-	@include theme.card;
+	@include theme.card();
 	max-width: 400px;
 
 	display: inline-block;
@@ -9,7 +9,6 @@
 	> div {
 		@include theme.keyColoredBackground();
 		text-align: center;
-		border-bottom: theme.$border;
 	}
 	> pre {
 		margin: 1.5em 2em;
@@ -20,15 +19,16 @@
 		display: flex;
 		padding: 0;
 		margin: 0;
-		border-top: theme.$border;
 
 		user-select: none;
-
 		div {
+			@include theme.transition(border-color);
+
 			text-align: center;
 			flex: 1 0 auto;
 			padding: 0.3em;
 
+			border-top: theme.$border;
 			&:last-child {
 				border-left: theme.$border;
 			}

@@ -39,10 +39,12 @@
 	}
 	> .action {
 		@include theme.button();
+		@include theme.transition(border-color);
 
 		flex: 0 0 auto;
-		border-top: theme.$border;
-		text-align: center;
 		padding: 0.6em;
+		text-align: center;
+
+		border-top: theme.$border;
 	}
 }
