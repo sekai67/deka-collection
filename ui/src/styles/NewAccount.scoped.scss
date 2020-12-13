@@ -1,7 +1,7 @@
 @use "themes/theme";
 
-:global :local(.Component) {
-	> h2 {
+section {
+	h2 {
 		@include theme.logoText();
 
 		font-size: 1.2rem;
@@ -9,7 +9,7 @@
 
 		margin: 0;
 	}
-	> article {
+	article {
 		@include theme.card();
 
 		display: inline-flex;
@@ -21,7 +21,7 @@
 			height: theme.$card-size;
 		}
 
-		> div {
+		.form {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-evenly;

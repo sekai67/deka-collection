@@ -1,19 +1,19 @@
 @use "themes/theme";
 
-:global :local(.Component) {
+article {
 	@include theme.card();
 	width: theme.$card-size;
 
 	display: flex;
 	flex-direction: column;
 
-	> img {
+	img {
 		cursor: pointer;
 		flex: 0 0 auto;
 		width: theme.$card-size;
 		height: theme.$card-size;
 	}
-	> .content {
+	.content {
 		flex: 1 0 auto;
 		padding: 1.2em;
 		word-wrap: break-word;
@@ -37,7 +37,7 @@
 			font-size: 0.9em;
 		}
 	}
-	> .action {
+	.action {
 		@include theme.button();
 		@include theme.transition(border-color);
 

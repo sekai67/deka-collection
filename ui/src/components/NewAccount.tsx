@@ -1,4 +1,4 @@
-import style from "../styles/NewAccount.module.scss";
+import "../styles/NewAccount.scoped.scss";
 
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { useHistory } from "react-router-dom";
@@ -47,11 +47,11 @@ export default function Component() {
 	};
 
 	return (
-		<section className={style.Component}>
+		<section>
 			<h2>アカウントをDEKA COLLECTIONに追加する</h2>
 			<article>
 				<img src={profilePic} onError={() => setFallback(true)} />
-				<div>
+				<div className="form">
 					<input
 						type="input"
 						placeholder="@deka0106"

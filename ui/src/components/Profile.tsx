@@ -1,4 +1,4 @@
-import style from "../styles/Profile.module.scss";
+import "../styles/Profile.scoped.scss";
 
 import { useSelector } from "react-redux";
 import { Account } from "../stores/accounts";
@@ -20,16 +20,16 @@ export default function Component({ account }: Props) {
 		}
 
 		const { value } = replies[Math.floor(Math.random() * selected.length)];
-		const text = encodeURIComponent(value.replace(/{{@}}/g, `@${account.screen_name}`).trim().substr(0, 140));
-		window.open(`https://twitter.com/intent/tweet?text=${text}`);
+		const text = value
+			.replace(/{{@}}/g, `@${account.screen_name}`)
+			.trim()
+			.substr(0, 140);
+		window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`);
 	};
 
 	return (
-		<article className={style.Component}>
-			<img
-				onClick={openProfile}
-				src={`https://res.cloudinary.com/narusejun/image/twitter_name/h_200/${account.screen_name}.jpg`}
-			/>
+		<article>
+			<img onClick={openProfile} src={`https://res.cloudinary.com/narusejun/image/twitter_name/h_200/${account.screen_name}.jpg`} />
 			<div className="content">
 				<h2 onClick={openProfile}>{account.full_name}</h2>
 				<h3 onClick={openProfile}>@{account.screen_name}</h3>

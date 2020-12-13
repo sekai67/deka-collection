@@ -1,4 +1,4 @@
-import style from "../styles/App.module.scss";
+import "../styles/App.scoped.scss";
 
 import { useEffect, useState } from "react";
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
@@ -29,7 +29,7 @@ export default function Component() {
 	}, []);
 
 	return (
-		<div className={style.Component} data-theme={darkMode ? "dark" : "light"}>
+		<div className="app" data-theme={darkMode ? "dark" : "light"}>
 			<HashRouter>
 				<header>
 					<h1>DEKA COLLECTION</h1>
@@ -42,7 +42,7 @@ export default function Component() {
 						<span>
 							<span>🌞</span>
 							<span>🌚</span>
-							<a></a>
+							<a />
 						</span>
 					</label>
 				</header>
@@ -60,19 +60,19 @@ export default function Component() {
 						</Route>
 					</Switch>
 				</main>
-
-				<footer>
-					Fork me on{" "}
-					<a target="_blank" href="https://github.com/sekai67/deka-collection">
-						GitHub
-					</a>
-					<br />
-					Created with 🧡 by{" "}
-					<a target="_blank" href="https://twitter.com/deka0106">
-						@deka0106
-					</a>
-				</footer>
 			</HashRouter>
+
+			<footer>
+				Fork me on{" "}
+				<a target="_blank" href="https://github.com/sekai67/deka-collection">
+					GitHub
+				</a>
+				<br />
+				Created with 🧡 by{" "}
+				<a target="_blank" href="https://twitter.com/deka0106">
+					@deka0106
+				</a>
+			</footer>
 		</div>
 	);
 }

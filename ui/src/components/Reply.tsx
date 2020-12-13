@@ -1,4 +1,4 @@
-import style from "../styles/Reply.module.scss";
+import "../styles/Reply.scoped.scss";
 
 import { useState, createRef } from "react";
 import { useAppDispatch } from "../stores";
@@ -32,27 +32,27 @@ export default function Component({ reply }: Props) {
 	};
 
 	return (
-		<article className={style.Component}>
-			{reply.selected && <div>選択中</div>}
+		<article>
+			{reply.selected && <div className="selected">選択中</div>}
 			<pre ref={ref}>{reply.value}</pre>
-			<menu>
+			<div className="commands">
 				{copied ? (
-					<div>コピーしました👌</div>
+					<div className="cmd">コピーしました👌</div>
 				) : (
-					<div className="action" onClick={pbcopy}>
+					<div className="cmd act" onClick={pbcopy}>
 						コピー
 					</div>
 				)}
 				{reply.selected ? (
-					<div className="action" onClick={toggleSelectStatus}>
+					<div className="cmd act" onClick={toggleSelectStatus}>
 						解除
 					</div>
 				) : (
-					<div className="action" onClick={toggleSelectStatus}>
+					<div className="cmd act" onClick={toggleSelectStatus}>
 						使う
 					</div>
 				)}
-			</menu>
+			</div>
 		</article>
 	);
 }
