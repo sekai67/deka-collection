@@ -1,13 +1,48 @@
-import "../styles/Reply.scoped.scss";
-
-import { useState, createRef } from "react";
+import styled from "@emotion/styled";
+import * as mixins from "../styles/mixins";
 import { useAppDispatch } from "../stores";
 import { Reply, updateSelected } from "../stores/replies";
+import { useState, createRef } from "react";
+
+const Container = styled.div(mixins.card, {
+	maxWidth: "300px",
+	display: "inline-block",
+});
+const Status = styled.div(mixins.keyBackground, {
+	textAlign: "center",
+});
+const ReplyBody = styled.pre({
+	margin: "1.5em 2em",
+	wordBreak: "break-word",
+	whiteSpace: "pre-wrap",
+});
+const Commands = styled.div({
+	display: "flex",
+	padding: "0",
+	margin: "0",
+
+	userSelect: "none",
+});
+const Command = styled.div(
+	mixins.transition(["border-color"]),
+	{
+		textAlign: "center",
+		flex: "1 0 auto",
+		padding: "0.3em",
+
+		borderTop: mixins.border,
+		"&:last-child": {
+			borderLeft: mixins.border,
+		},
+
+		color: mixins.theme.primaryColor,
+	},
+	props => (props.onClick ? mixins.button : {}),
+);
 
 type Props = {
 	reply: Reply;
 };
-
 export default function Component({ reply }: Props) {
 	const ref = createRef<HTMLPreElement>();
 	const [copied, setCopied] = useState(false);
@@ -32,27 +67,13 @@ export default function Component({ reply }: Props) {
 	};
 
 	return (
-		<article>
-			{reply.selected && <div className="selected">選択中</div>}
-			<pre ref={ref}>{reply.value}</pre>
-			<div className="commands">
-				{copied ? (
-					<div className="cmd">コピーしました👌</div>
-				) : (
-					<div className="cmd act" onClick={pbcopy}>
-						コピー
-					</div>
-				)}
-				{reply.selected ? (
-					<div className="cmd act" onClick={toggleSelectStatus}>
-						解除
-					</div>
-				) : (
-					<div className="cmd act" onClick={toggleSelectStatus}>
-						使う
-					</div>
-				)}
-			</div>
-		</article>
+		<Container>
+			{reply.selected && <Status className="selected">選択中</Status>}
+			<ReplyBody ref={ref}>{reply.value}</ReplyBody>
+			<Commands>
+				<Command onClick={copied ? undefined : pbcopy}>コピー{copied ? "完了👌" : ""}</Command>
+				<Command onClick={toggleSelectStatus}>{reply.selected ? "解除" : "選択"}</Command>
+			</Commands>
+		</Container>
 	);
 }
