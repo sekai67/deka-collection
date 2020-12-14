@@ -21,6 +21,12 @@ export const keyBackground = css({
 	background: `linear-gradient(30deg, ${theme.primaryColor}, ${theme.secondaryColor})`,
 });
 
+export const logoText = css({
+	fontFamily: "Oswald",
+	fontWeight: "normal",
+	letterSpacing: "0.1em",
+});
+
 export const button = css({
 	cursor: "pointer",
 	color: theme.secondaryColor,

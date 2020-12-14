@@ -1,10 +1,51 @@
-import "../styles/NewAccount.scoped.scss";
-
-import { ChangeEvent, KeyboardEvent, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import * as mixins from "../styles/mixins";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../stores";
 import { addAccount } from "../stores/accounts";
+import React, { ChangeEvent, Fragment, KeyboardEvent, useState } from "react";
+import { useHistory } from "react-router-dom";
+import Spinner from "./Spinner";
+
+const Heading = styled.h2(mixins.logoText, {
+	margin: "0",
+	fontSize: "1.2rem",
+	color: mixins.theme.subtextColor,
+});
+const ProfileCard = styled.div(mixins.card, {
+	display: "inline-flex",
+	flexDirection: "row",
+	height: mixins.cardSize,
+});
+const ProfileImage = styled.img({
+	width: mixins.cardSize,
+	height: mixins.cardSize,
+});
+const AcountLookup = styled.div({
+	display: "flex",
+	flexDirection: "column",
+	justifyContent: "space-evenly",
+	alignItems: "flex-end",
+	padding: "0 1em",
+});
+const ScreenNameInput = styled.input(mixins.transition(), {
+	padding: "0.5em",
+	fontSize: "2em",
+
+	border: mixins.border,
+	borderRadius: "0.2em",
+
+	color: mixins.theme.textColor,
+	backgroundColor: mixins.theme.backgroundColor,
+	"&::placeholder": css(mixins.transition(), {
+		color: "theme.$color-border",
+	}),
+});
+const Command = styled.div(mixins.button, {
+	padding: "1em 2em",
+	borderRadius: "0.2em",
+});
 
 export default function Component() {
 	const [target, setTarget] = useState("");
@@ -47,27 +88,21 @@ export default function Component() {
 	};
 
 	return (
-		<section>
-			<h2>アカウントをDEKA COLLECTIONに追加する</h2>
-			<article>
-				<img src={profilePic} onError={() => setFallback(true)} />
-				<div className="form">
-					<input
-						type="input"
+		<Fragment>
+			<Heading>アカウントをDEKA COLLECTIONに追加する</Heading>
+			<ProfileCard>
+				<ProfileImage src={profilePic} onError={() => setFallback(true)} />
+				<AcountLookup>
+					<ScreenNameInput
+						type="text"
 						placeholder="@deka0106"
 						value={target}
 						onKeyPress={handleEnterKey}
 						onChange={changeProfilePicture}
 					/>
-					{loading ? (
-						<div className="loading dot-windmill" />
-					) : (
-						<div className="action" onClick={callAddAccount}>
-							追加
-						</div>
-					)}
-				</div>
-			</article>
-		</section>
+					{loading ? <Spinner /> : <Command onClick={callAddAccount}>追加</Command>}
+				</AcountLookup>
+			</ProfileCard>
+		</Fragment>
 	);
 }
