@@ -26,6 +26,11 @@ export const logoText = css({
 	fontWeight: "normal",
 	letterSpacing: "0.1em",
 });
+export const logoStyle = css(keyBackground, {
+	color: theme.primaryColor,
+	backgroundClip: "text",
+	WebkitTextFillColor: "transparent",
+});
 
 export const button = css({
 	cursor: "pointer",

@@ -4,7 +4,7 @@ import * as mixins from "../styles/mixins";
 import { themes } from "../styles/theme";
 import { useState } from "react";
 
-const Switch = styled.label({
+const ThemeSwitch = styled.label({
 	cursor: "pointer",
 	width: "70px",
 });
@@ -18,12 +18,12 @@ const Appearance = styled.span({
 	},
 });
 
-export default function Component() {
+export default function Component(props: typeof ThemeSwitch.propTypes) {
 	const { matches } = matchMedia("(prefers-color-scheme: dark)");
 	const [theme, setTheme] = useState<keyof typeof themes>(matches ? "dark" : "light");
 
 	return (
-		<Switch className="switch-light switch-ios">
+		<ThemeSwitch className={`switch-light switch-ios ${props?.className}`}>
 			<Global styles={themes[theme]} />
 			<input type="checkbox" checked={theme == "dark"} onChange={e => setTheme(e.target.checked ? "dark" : "light")} />
 			<Appearance>
@@ -31,6 +31,6 @@ export default function Component() {
 				<span>🌚</span>
 				<a />
 			</Appearance>
-		</Switch>
+		</ThemeSwitch>
 	);
 }
