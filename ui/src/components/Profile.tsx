@@ -36,7 +36,7 @@ const Bio = styled.p({
 	lineHeight: "1.1em",
 	fontSize: "0.9em",
 });
-const Command = styled.div(mixins.button, mixins.transition(["boreder-color"]), {
+const Command = styled.div(mixins.button, mixins.transition("boreder-color"), {
 	flex: "0 0 auto",
 	padding: "0.6em",
 	textAlign: "center",

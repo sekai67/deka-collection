@@ -24,7 +24,7 @@ const Commands = styled.div({
 	userSelect: "none",
 });
 const Command = styled.div(
-	mixins.transition(["border-color"]),
+	mixins.transition("border-color"),
 	{
 		textAlign: "center",
 		flex: "1 0 auto",
