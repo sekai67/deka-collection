@@ -18,6 +18,9 @@ const Appearance = styled.span({
 			borderColor: mixins.theme.primaryColor,
 		},
 	},
+	"&&& > a": {
+		outline: "none",
+	},
 });
 
 const Component = ({ className }: Parameters<typeof Toggle>[0]) => {
