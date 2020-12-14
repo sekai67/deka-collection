@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Fragment } from "react";
-import Reply from "./Reply";
+import Reply from "../components/Reply";
 
 export default function Component() {
 	const replies = useSelector(state => state.replies.value);

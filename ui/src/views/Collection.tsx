@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
-import Profile from "./Profile";
-import Spinner from "./Spinner";
+import Profile from "../components/Profile";
+import Spinner from "../components/Spinner";
 
 const Container = styled.div({
 	display: "flex",

@@ -5,7 +5,7 @@ import { useAppDispatch } from "../stores";
 import { fetchAccounts } from "../stores/accounts";
 import { useEffect } from "react";
 import { HashRouter, Switch, Route, Link as _Link } from "react-router-dom";
-import _ThemeSwitch from "./ThemeSwitch";
+import _ThemeSwitch from "../components/ThemeSwitch";
 import Collection from "./Collection";
 import NewAccount from "./NewAccount";
 import ReplyList from "./ReplyList";

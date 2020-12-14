@@ -6,7 +6,7 @@ import { useAppDispatch } from "../stores";
 import { addAccount } from "../stores/accounts";
 import React, { ChangeEvent, Fragment, KeyboardEvent, useState } from "react";
 import { useHistory } from "react-router-dom";
-import Spinner from "./Spinner";
+import Spinner from "../components/Spinner";
 
 const Heading = styled.h2(mixins.logoText, {
 	margin: "0",
