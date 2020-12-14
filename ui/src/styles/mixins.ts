@@ -3,7 +3,9 @@ import { Property } from "csstype";
 import theme from "./theme";
 
 export { theme };
+
 export const border: Property.Border = `1px solid ${theme.borderColor}`;
+export const cardSize: Property.Width & Property.Height = "200px";
 
 export const transition = (
 	props: Property.TransitionProperty[] = ["color", "border-color", "background-color", "box-shadow"],
