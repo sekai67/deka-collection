@@ -1,3 +1,5 @@
+import "css-toggle-switch/dist/toggle-switch.css";
+
 import { Global } from "@emotion/react";
 import styled from "@emotion/styled";
 import * as mixins from "../styles/mixins";
