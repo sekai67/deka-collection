@@ -44,10 +44,16 @@ const slice = createSlice({
 		builder.addCase(fetchAccounts.fulfilled, (state, { payload }) => {
 			state.value = payload.sort(compareFn);
 		});
+		builder.addCase(fetchAccounts.rejected, (_, { error }) => {
+			alert(`fetching accounts: ${error.message}`);
+		});
 		builder.addCase(addAccount.fulfilled, (state, { payload }) => {
 			const accounts = state.value.filter(({ screen_name }) => screen_name != payload.screen_name);
 			accounts.push(payload);
 			state.value = accounts.sort(compareFn);
+		});
+		builder.addCase(addAccount.rejected, (_, { error }) => {
+			alert(`adding account: ${error.message}`);
 		});
 	},
 });

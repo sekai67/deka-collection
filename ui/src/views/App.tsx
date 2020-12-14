@@ -1,9 +1,5 @@
 import styled from "@emotion/styled";
 import * as mixins from "../styles/mixins";
-import { unwrapResult } from "@reduxjs/toolkit";
-import { useAppDispatch } from "../stores";
-import { fetchAccounts } from "../stores/accounts";
-import { useEffect } from "react";
 import { HashRouter, Switch, Route, Link as _Link } from "react-router-dom";
 import _ThemeSwitch from "../components/ThemeSwitch";
 import Collection from "./Collection";
@@ -61,21 +57,6 @@ const FootLink = styled.a({
 });
 
 export default function Component() {
-	const dispatch = useAppDispatch();
-	useEffect(() => {
-		(async () => {
-			const result = await dispatch(fetchAccounts());
-			try {
-				await unwrapResult(result);
-			} catch (e) {
-				if ("message" in e) {
-					e = e.message;
-				}
-				alert(`fething accounts: ${e}`);
-			}
-		})();
-	}, []);
-
 	return (
 		<Container>
 			<HashRouter>

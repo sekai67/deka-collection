@@ -1,7 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import * as mixins from "../styles/mixins";
-import { unwrapResult } from "@reduxjs/toolkit";
 import { useAppDispatch } from "../stores";
 import { addAccount } from "../stores/accounts";
 import React, { ChangeEvent, Fragment, KeyboardEvent, useState } from "react";
@@ -72,19 +71,10 @@ export default function Component() {
 		if (fallback) {
 			return alert("No such account!");
 		}
-
 		setLoading(true);
 		const result = await dispatch(addAccount(target));
 		setLoading(false);
-		try {
-			await unwrapResult(result);
-			history.push("/");
-		} catch (e) {
-			if ("message" in e) {
-				e = e.message;
-			}
-			alert(`adding account: ${e}`);
-		}
+		history.push("/");
 	};
 
 	return (

@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
+import { useAppDispatch } from "../stores";
+import { fetchAccounts } from "../stores/accounts";
+import { useEffect } from "react";
 import Profile from "../components/Profile";
 import Spinner from "../components/Spinner";
 
@@ -10,6 +13,13 @@ const Container = styled.div({
 
 export default function Component() {
 	const accounts = useSelector(state => state.accounts.value);
+
+	const dispatch = useAppDispatch();
+	useEffect(() => {
+		if (!accounts.length) {
+			dispatch(fetchAccounts());
+		}
+	}, []);
 
 	return (
 		<Container>
