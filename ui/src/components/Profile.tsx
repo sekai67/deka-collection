@@ -36,7 +36,7 @@ const Bio = styled.p({
 	lineHeight: "1.1em",
 	fontSize: "0.9em",
 });
-const Command = styled.div(mixins.button, mixins.transition("boreder-color"), {
+const Command = styled.div(mixins.button, mixins.transition("border-color"), {
 	flex: "0 0 auto",
 	padding: "0.6em",
 	textAlign: "center",
@@ -59,10 +59,7 @@ const Component = ({ account }: Props) => {
 		}
 
 		const { value } = replies[Math.floor(Math.random() * selected.length)];
-		const text = value
-			.replace(/{{@}}/g, `@${account.screen_name}`)
-			.trim()
-			.substr(0, 140);
+		const text = value.replace(/{{@}}/g, `@${account.screen_name}`).trim().substr(0, 140);
 		window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`);
 	};
 
