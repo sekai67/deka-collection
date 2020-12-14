@@ -1,4 +1,4 @@
-import "css-toggle-switch/dist/toggle-switch.css";
+import "css-toggle-switch/src/toggle-switch.scss";
 
 import { Global } from "@emotion/react";
 import styled from "@emotion/styled";
