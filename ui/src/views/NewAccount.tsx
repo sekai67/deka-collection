@@ -46,7 +46,7 @@ const Command = styled.div(mixins.button, {
 	borderRadius: "0.2em",
 });
 
-export default function Component() {
+const Component = () => {
 	const [target, setTarget] = useState("");
 	const [fallback, setFallback] = useState(false);
 
@@ -95,4 +95,5 @@ export default function Component() {
 			</ProfileCard>
 		</Fragment>
 	);
-}
+};
+export default Component;

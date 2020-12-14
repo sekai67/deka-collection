@@ -11,7 +11,7 @@ const Container = styled.div({
 	flexWrap: "wrap",
 });
 
-export default function Component() {
+const Component = () => {
 	const accounts = useSelector(state => state.accounts.value);
 
 	const dispatch = useAppDispatch();
@@ -29,4 +29,5 @@ export default function Component() {
 			))}
 		</Container>
 	);
-}
+};
+export default Component;

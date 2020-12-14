@@ -14,6 +14,7 @@ const Spinner = styled.div(colorOverride, {
 	"&::after": colorOverride,
 });
 
-export default function Component() {
+const Component = () => {
 	return <Spinner className="dot-windmill" />;
-}
+};
+export default Component;

@@ -20,7 +20,7 @@ const Appearance = styled.span({
 	},
 });
 
-export default function Component({ className }: Parameters<typeof Toggle>[0]) {
+const Component = ({ className }: Parameters<typeof Toggle>[0]) => {
 	const { matches } = matchMedia("(prefers-color-scheme: dark)");
 	const [theme, setTheme] = useState<keyof typeof themes>(matches ? "dark" : "light");
 
@@ -35,4 +35,5 @@ export default function Component({ className }: Parameters<typeof Toggle>[0]) {
 			</Appearance>
 		</Toggle>
 	);
-}
+};
+export default Component;

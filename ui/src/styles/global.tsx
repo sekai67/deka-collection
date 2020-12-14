@@ -12,6 +12,7 @@ const styles = css({
 	},
 });
 
-export default function Component() {
+const Component = () => {
 	return <Global styles={styles} />;
-}
+};
+export default Component;

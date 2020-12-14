@@ -56,7 +56,7 @@ const FootLink = styled.a({
 	color: mixins.theme.secondaryColor,
 });
 
-export default function Component() {
+const Component = () => {
 	return (
 		<Container>
 			<HashRouter>
@@ -97,4 +97,5 @@ export default function Component() {
 			</Footer>
 		</Container>
 	);
-}
+};
+export default Component;

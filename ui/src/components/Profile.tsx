@@ -46,8 +46,7 @@ const Command = styled.div(mixins.button, mixins.transition("boreder-color"), {
 type Props = {
 	account: Account;
 };
-
-export default function Component({ account }: Props) {
+const Component = ({ account }: Props) => {
 	const replies = useSelector(state => state.replies.value);
 
 	const openProfile = () => {
@@ -81,4 +80,5 @@ export default function Component({ account }: Props) {
 			<Command onClick={sendReply}>クソリプ</Command>
 		</Container>
 	);
-}
+};
+export default Component;

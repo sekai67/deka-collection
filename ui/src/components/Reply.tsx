@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import * as mixins from "../styles/mixins";
 import { useAppDispatch } from "../stores";
 import { Reply, updateSelected } from "../stores/replies";
-import { useState, createRef } from "react";
+import { useState, createRef, memo } from "react";
 
 const Container = styled.div(mixins.card, {
 	maxWidth: "300px",
@@ -43,7 +43,7 @@ const Command = styled.div(
 type Props = {
 	reply: Reply;
 };
-export default function Component({ reply }: Props) {
+const Component = ({ reply }: Props) => {
 	const ref = createRef<HTMLPreElement>();
 	const [copied, setCopied] = useState(false);
 	const pbcopy = () => {
@@ -76,4 +76,5 @@ export default function Component({ reply }: Props) {
 			</Commands>
 		</Container>
 	);
-}
+};
+export default memo(Component);
