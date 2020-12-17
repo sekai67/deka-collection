@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
 import { Fragment } from "react";
+import { useSelector } from "react-redux";
 import Reply from "../components/Reply";
 
 const Component = () => {

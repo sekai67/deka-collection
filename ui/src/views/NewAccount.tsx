@@ -1,11 +1,11 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import * as mixins from "../styles/mixins";
-import { useAppDispatch } from "../stores";
-import { addAccount } from "../stores/accounts";
 import React, { ChangeEvent, Fragment, KeyboardEvent, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import { useAppDispatch } from "../stores";
+import { addAccount } from "../stores/accounts";
+import * as mixins from "../styles/mixins";
 
 const Heading = styled.h2(mixins.logoText, {
 	margin: "0",

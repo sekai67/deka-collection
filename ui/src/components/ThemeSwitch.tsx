@@ -1,10 +1,9 @@
-import "css-toggle-switch/src/toggle-switch.scss";
-
 import { Global } from "@emotion/react";
 import styled from "@emotion/styled";
+import "css-toggle-switch/src/toggle-switch.scss";
+import { useState } from "react";
 import * as mixins from "../styles/mixins";
 import { themes } from "../styles/theme";
-import { useState } from "react";
 
 const Toggle = styled.label({
 	cursor: "pointer",

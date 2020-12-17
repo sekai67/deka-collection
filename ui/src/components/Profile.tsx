@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import * as mixins from "../styles/mixins";
 import { useSelector } from "react-redux";
-import { Account } from "../stores/accounts";
+import type { Account } from "../stores/accounts";
+import * as mixins from "../styles/mixins";
 
 const Container = styled.div(mixins.card, {
 	display: "flex",

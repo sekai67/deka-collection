@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import * as mixins from "../styles/mixins";
+import { useState, createRef, memo } from "react";
 import { useAppDispatch } from "../stores";
 import { Reply, updateSelected } from "../stores/replies";
-import { useState, createRef, memo } from "react";
+import * as mixins from "../styles/mixins";
 
 const Container = styled.div(mixins.card, {
 	maxWidth: "300px",

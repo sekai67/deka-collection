@@ -1,6 +1,5 @@
-import replies from "../replies";
-
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import replies from "../replies";
 
 export type Reply = {
 	id: number;

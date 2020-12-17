@@ -1,7 +1,6 @@
-import "three-dots";
-
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import "three-dots";
 import * as mixins from "../styles/mixins";
 
 const colorOverride = css({

@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { Property } from "csstype";
+import type { Property } from "csstype";
 import theme from "./theme";
 
 export { theme };

@@ -1,4 +1,4 @@
-import { Theme } from "./_type";
+import type { Theme } from "./_type";
 
 const theme: Theme = {
 	backgroundColor: "rgb(24, 24, 24)",

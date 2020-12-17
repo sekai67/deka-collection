@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import * as mixins from "../styles/mixins";
 import { HashRouter, Switch, Route, Link as _Link } from "react-router-dom";
 import _ThemeSwitch from "../components/ThemeSwitch";
+import * as mixins from "../styles/mixins";
 import Collection from "./Collection";
 import NewAccount from "./NewAccount";
 import ReplyList from "./ReplyList";

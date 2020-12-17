@@ -1,9 +1,8 @@
-import accounts from "./accounts";
-import replies from "./replies";
-
-import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
+import { combineReducers } from "redux";
+import accounts from "./accounts";
+import replies from "./replies";
 
 const reducer = combineReducers({
 	[accounts.name]: accounts.reducer,

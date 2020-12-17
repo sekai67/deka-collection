@@ -1,6 +1,5 @@
-import "typeface-oswald";
-
 import { css, Global } from "@emotion/react";
+import "typeface-oswald";
 
 const styles = css({
 	"*": {
