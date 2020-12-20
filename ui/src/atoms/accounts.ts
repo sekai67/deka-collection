@@ -1,10 +1,5 @@
 import { atom, selector, useSetRecoilState } from "recoil";
-
-export type Account = {
-	screen_name: string;
-	full_name: string;
-	bio: string;
-};
+import { Account } from "../schema";
 
 const apiCall = async (url: string): Promise<any> => {
 	const resp = await fetch(url);
@@ -30,16 +25,18 @@ export const accountsState = selector({
 	key: "accountsState",
 	get: ({ get }) => {
 		const accounts = new Map(
-			[...get(remoteAccountsState), ...get(localAccountsState)].map(account => [account.screen_name, account]),
+			[...get(remoteAccountsState), ...get(localAccountsState)].map(account => [account.id, account]),
 		);
-		return Array.from(accounts.values());
+		return Array.from(accounts.values()).sort((a, b) =>
+			a.screenName.toLowerCase().localeCompare(b.screenName.toLowerCase()),
+		);
 	},
 });
 
 export const useAccountRegistrar = () => {
 	const setAccounts = useSetRecoilState(localAccountsState);
-	return async (screen_name: string) => {
-		const account: Account = await apiCall(`/api/add?screen_name=${encodeURIComponent(screen_name)}`);
+	return async (screenName: string) => {
+		const account: Account = await apiCall(`/api/add?screen_name=${encodeURIComponent(screenName)}`);
 		setAccounts(accounts => [...accounts, account]);
 	};
 };

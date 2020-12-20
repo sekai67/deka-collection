@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
-import { Account } from "../atoms/accounts";
 import { selectedRepliesState } from "../atoms/replies";
+import { Account } from "../schema";
 import * as mixins from "../styles/mixins";
 
 const Container = styled.div(mixins.card, {
@@ -51,11 +51,11 @@ const Component = ({ account }: Props) => {
 	const replies = useRecoilValue(selectedRepliesState);
 
 	const openProfile = () => {
-		window.open(`https://twitter.com/${account.screen_name}`);
+		window.open(`https://twitter.com/${account.screenName}`);
 	};
 	const sendReply = () => {
 		const reply = replies[Math.floor(Math.random() * replies.length)];
-		const text = reply.replace(/{{@}}/g, `@${account.screen_name}`).trim().substr(0, 140);
+		const text = reply.replace(/{{@}}/g, `@${account.screenName}`).trim().substr(0, 140);
 		window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`);
 	};
 
@@ -63,12 +63,12 @@ const Component = ({ account }: Props) => {
 		<Container>
 			<ProfilePicture
 				onClick={openProfile}
-				src={`https://res.cloudinary.com/narusejun/image/twitter_name/h_200/${account.screen_name}.jpg`}
+				src={`https://res.cloudinary.com/narusejun/image/twitter_name/h_200/${account.screenName}.jpg`}
 			/>
 			<Profile>
-				<FullName onClick={openProfile}>{account.full_name}</FullName>
-				<ScreenName onClick={openProfile}>@{account.screen_name}</ScreenName>
-				<Bio>{account.bio}</Bio>
+				<FullName onClick={openProfile}>{account.name}</FullName>
+				<ScreenName onClick={openProfile}>@{account.screenName}</ScreenName>
+				<Bio>{account.description}</Bio>
 			</Profile>
 			<Command onClick={sendReply}>クソリプ</Command>
 		</Container>

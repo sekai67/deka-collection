@@ -14,7 +14,7 @@ const Component = () => {
 	return (
 		<Container>
 			{accounts.map(account => (
-				<Profile key={account.screen_name} account={account} />
+				<Profile key={account.id} account={account} />
 			))}
 		</Container>
 	);
