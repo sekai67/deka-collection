@@ -1,4 +1,4 @@
-import { Account } from "./kv/accounts";
+import { Account } from "./schema";
 
 type GuestActivateResponse = {
 	guest_token: string;

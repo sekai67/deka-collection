@@ -1,13 +1,7 @@
 import { KeyValueStore } from ".";
+import { Account } from "../schema";
 
 declare const ACCOUNTS: KVNamespace;
-
-export type Account = {
-	id: string;
-	name: string;
-	screenName: string;
-	description: string;
-};
 
 export default new KeyValueStore<Account, Account["id"]>(
 	ACCOUNTS,
