@@ -1,3 +1,5 @@
+import { HttpError } from "./error";
+
 export type Handler = (request: Request) => Promise<Response>;
 
 type Route = {
@@ -27,7 +29,11 @@ export default class {
 				},
 			);
 		}
-		return handler(request);
+		try {
+			return await handler(request);
+		} catch (e) {
+			return HttpError.from(e).toResponse();
+		}
 	}
 
 	public register(route: Route, handler: Handler) {

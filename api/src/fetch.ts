@@ -4,7 +4,7 @@ import { Account } from "./kv";
 export const fetchAccount = async (screenName: string): Promise<Account> => {
 	const resp = await fetch(`https://mobile.twitter.com/${screenName}`);
 	if (!resp.ok) {
-		throw new Error(`HTTP Error: ${resp.status}`);
+		throw new Error(`Failed to fetch profile: status=${resp.status}`);
 	}
 
 	const $ = load(await resp.text());
