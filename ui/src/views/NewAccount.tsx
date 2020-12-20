@@ -2,9 +2,8 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React, { ChangeEvent, Fragment, KeyboardEvent, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useAccountRegistrar } from "../atoms/accounts";
 import Spinner from "../components/Spinner";
-import { useAppDispatch } from "../stores";
-import { addAccount } from "../stores/accounts";
 import * as mixins from "../styles/mixins";
 
 const Heading = styled.h2(mixins.logoText, {
@@ -61,19 +60,23 @@ const Component = () => {
 		if (e.key != "Enter") {
 			return;
 		}
-		callAddAccount();
+		registerAccount();
 	};
 
 	const [loading, setLoading] = useState(false);
-	const dispatch = useAppDispatch();
+	const registrar = useAccountRegistrar();
 	const history = useHistory();
-	const callAddAccount = async () => {
+	const registerAccount = async () => {
 		if (fallback) {
 			return alert("No such account!");
 		}
 		setLoading(true);
-		const result = await dispatch(addAccount(target));
-		setLoading(false);
+		try {
+			await registrar(target);
+		} catch (e) {
+			setLoading(false);
+			return alert(e);
+		}
 		history.push("/");
 	};
 
@@ -90,7 +93,7 @@ const Component = () => {
 						onKeyPress={handleEnterKey}
 						onChange={changeProfilePicture}
 					/>
-					{loading ? <Spinner /> : <Command onClick={callAddAccount}>追加</Command>}
+					{loading ? <Spinner /> : <Command onClick={registerAccount}>追加</Command>}
 				</AcountLookup>
 			</ProfileCard>
 		</Fragment>

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { useSelector } from "react-redux";
+import { useRecoilValue } from "recoil";
+import { accountsState } from "../atoms/accounts";
 import Profile from "../components/Profile";
-import Spinner from "../components/Spinner";
 
 const Container = styled.div({
 	display: "flex",
@@ -9,11 +9,10 @@ const Container = styled.div({
 });
 
 const Component = () => {
-	const accounts = useSelector(state => state.accounts.value);
+	const accounts = useRecoilValue(accountsState);
 
 	return (
 		<Container>
-			{!accounts.length && <Spinner />}
 			{accounts.map(account => (
 				<Profile key={account.screen_name} account={account} />
 			))}

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
+import { Account } from "../atoms/accounts";
 import { selectedRepliesState } from "../atoms/replies";
-import type { Account } from "../stores/accounts";
 import * as mixins from "../styles/mixins";
 
 const Container = styled.div(mixins.card, {

@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
-import { HashRouter, Switch, Route, Link as _Link } from "react-router-dom";
+import React from "react";
+import { HashRouter, Link as _Link, Route, Switch } from "react-router-dom";
+import { Boundary } from "react-suspense-boundary";
+import Spinner from "../components/Spinner";
 import _ThemeSwitch from "../components/ThemeSwitch";
 import * as mixins from "../styles/mixins";
 import Collection from "./Collection";
@@ -78,7 +81,9 @@ const Component = () => {
 							<NewAccount />
 						</Route>
 						<Route path="/">
-							<Collection />
+							<Boundary pendingFallback={<Spinner />} onErrorCaught={err => alert(err.message)}>
+								<Collection />
+							</Boundary>
 						</Route>
 					</Switch>
 				</Main>
