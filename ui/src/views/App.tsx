@@ -73,19 +73,19 @@ const Component = () => {
 				</Header>
 
 				<Main>
-					<Switch>
-						<Route path="/replies">
-							<ReplyList />
-						</Route>
-						<Route path="/new">
-							<NewAccount />
-						</Route>
-						<Route path="/">
-							<Boundary pendingFallback={<Spinner />} onErrorCaught={err => alert(err.message)}>
+					<Boundary pendingFallback={<Spinner />} onErrorCaught={err => alert(err.message)}>
+						<Switch>
+							<Route exact path="/">
 								<Collection />
-							</Boundary>
-						</Route>
-					</Switch>
+							</Route>
+							<Route path="/new">
+								<NewAccount />
+							</Route>
+							<Route path="/replies">
+								<ReplyList />
+							</Route>
+						</Switch>
+					</Boundary>
 				</Main>
 			</HashRouter>
 

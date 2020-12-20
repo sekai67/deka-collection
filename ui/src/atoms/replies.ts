@@ -1,14 +1,15 @@
-import { atom, atomFamily, selector } from "recoil";
-import replies from "../replies";
+import { atomFamily, selector } from "recoil";
 
-export type Reply = {
-	value: string;
-	selected: boolean;
-};
-
-export const repliesState = atom({
+export const repliesState = selector({
 	key: "repliesState",
-	default: replies,
+	get: () =>
+		Promise.all(
+			Array.from(new Array(70).keys()).map(async num => {
+				const numKey = `000${num + 1}`.substr(-3);
+				const resp = await fetch(`/replies/reply${numKey}.txt`);
+				return resp.text();
+			}),
+		),
 });
 export const replySelectedState = atomFamily({
 	key: "replySelectedState",
