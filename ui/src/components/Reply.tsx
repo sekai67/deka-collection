@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { useState, createRef, memo } from "react";
-import { useAppDispatch } from "../stores";
-import { Reply, updateSelected } from "../stores/replies";
+import { createRef, useState } from "react";
+import { useRecoilState } from "recoil";
+import { replySelectedState } from "../atoms/replies";
 import * as mixins from "../styles/mixins";
 
 const Container = styled.div(mixins.card, {
@@ -41,9 +41,12 @@ const Command = styled.div(
 );
 
 type Props = {
-	reply: Reply;
+	reply: string;
 };
 const Component = ({ reply }: Props) => {
+	const [selected, setSelected] = useRecoilState(replySelectedState(reply));
+	const toggleSelected = () => setSelected(selected => !selected);
+
 	const ref = createRef<HTMLPreElement>();
 	const [copied, setCopied] = useState(false);
 	const pbcopy = () => {
@@ -61,20 +64,15 @@ const Component = ({ reply }: Props) => {
 		setTimeout(setCopied, 2000, false);
 	};
 
-	const dispatch = useAppDispatch();
-	const toggleSelectStatus = () => {
-		dispatch(updateSelected({ id: reply.id, selected: !reply.selected }));
-	};
-
 	return (
 		<Container>
-			{reply.selected && <Status className="selected">選択中</Status>}
-			<ReplyBody ref={ref}>{reply.value}</ReplyBody>
+			{selected && <Status className="selected">選択中</Status>}
+			<ReplyBody ref={ref}>{reply}</ReplyBody>
 			<Commands>
 				<Command onClick={copied ? undefined : pbcopy}>コピー{copied ? "完了👌" : ""}</Command>
-				<Command onClick={toggleSelectStatus}>{reply.selected ? "解除" : "選択"}</Command>
+				<Command onClick={toggleSelected}>{selected ? "解除" : "選択"}</Command>
 			</Commands>
 		</Container>
 	);
 };
-export default memo(Component);
+export default Component;

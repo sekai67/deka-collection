@@ -1,16 +1,17 @@
-import { Fragment } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useRecoilValue } from "recoil";
+import { repliesState } from "../atoms/replies";
 import Reply from "../components/Reply";
 
 const Component = () => {
-	const replies = useSelector(state => state.replies.value);
+	const replies = useRecoilValue(repliesState);
 
 	return (
-		<Fragment>
-			{replies.map(reply => (
-				<Reply key={reply.id} reply={reply} />
+		<React.Fragment>
+			{replies.map((reply, index) => (
+				<Reply key={index} reply={reply} />
 			))}
-		</Fragment>
+		</React.Fragment>
 	);
 };
 export default Component;

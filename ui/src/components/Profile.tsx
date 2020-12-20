@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { useSelector } from "react-redux";
+import { useRecoilValue } from "recoil";
+import { selectedRepliesState } from "../atoms/replies";
 import type { Account } from "../stores/accounts";
 import * as mixins from "../styles/mixins";
 
@@ -47,19 +48,14 @@ type Props = {
 	account: Account;
 };
 const Component = ({ account }: Props) => {
-	const replies = useSelector(state => state.replies.value);
+	const replies = useRecoilValue(selectedRepliesState);
 
 	const openProfile = () => {
 		window.open(`https://twitter.com/${account.screen_name}`);
 	};
 	const sendReply = () => {
-		let selected = replies.filter(({ selected }) => selected);
-		if (selected.length == 0) {
-			selected = replies;
-		}
-
-		const { value } = replies[Math.floor(Math.random() * selected.length)];
-		const text = value.replace(/{{@}}/g, `@${account.screen_name}`).trim().substr(0, 140);
+		const reply = replies[Math.floor(Math.random() * replies.length)];
+		const text = reply.replace(/{{@}}/g, `@${account.screen_name}`).trim().substr(0, 140);
 		window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`);
 	};
 
