@@ -1,6 +1,6 @@
 import { HttpError } from "../error";
 import { fetchAccount } from "../fetch";
-import { putAccount } from "../kv";
+import AccountStore from "../kv/accounts";
 import { Handler } from "../router";
 
 export const handleAdd: Handler = async request => {
@@ -10,7 +10,7 @@ export const handleAdd: Handler = async request => {
 	}
 
 	const account = await fetchAccount(screen_name);
-	await putAccount(account);
+	await AccountStore.put(account);
 
 	return new Response(JSON.stringify(account), {
 		status: 200,

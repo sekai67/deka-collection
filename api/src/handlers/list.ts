@@ -1,8 +1,9 @@
-import { getCachedAccounts } from "../kv";
+import AccountStore from "../kv/accounts";
 import { Handler } from "../router";
 
 export const handleList: Handler = async () => {
-	return new Response(JSON.stringify(await getCachedAccounts()), {
+	const resp = JSON.stringify(await AccountStore.getAll());
+	return new Response(resp, {
 		status: 200,
 		headers: {
 			"Content-Type": "application/json",

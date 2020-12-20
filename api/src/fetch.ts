@@ -1,4 +1,4 @@
-import { Account } from "./kv";
+import { Account } from "./kv/accounts";
 
 type GuestActivateResponse = {
 	guest_token: string;
@@ -39,8 +39,9 @@ export const fetchAccount = async (screen_name: string): Promise<Account> => {
 
 	const user: UsersShowResponse = await resp.json();
 	return {
-		screen_name: user.screen_name,
-		full_name: user.name,
-		bio: user.description,
+		id: user.id_str,
+		name: user.name,
+		screenName: user.screen_name,
+		description: user.description,
 	};
 };
