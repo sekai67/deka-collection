@@ -1,6 +1,6 @@
 import { Global } from "@emotion/react";
 import styled from "@emotion/styled";
-import "css-toggle-switch/src/toggle-switch.scss";
+import "css-toggle-switch/dist/toggle-switch-rem.css";
 import { useState } from "react";
 import * as mixins from "../styles/mixins";
 import { themes } from "../styles/theme";
